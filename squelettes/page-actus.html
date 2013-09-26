@@ -1,0 +1,23 @@
+
+      <div id="page-actus">
+        <div id="page-actus-bg-cont">
+          <div id="page-actus-bg">
+          </div>
+        </div>
+        <div id="rub-defil-container">
+          <BOUCLE_hierfocus(HIERARCHIE){tout}{inverse}>
+          <BOUCLE_focusR(ARTICLES){id_rubrique}{titre_mot=focus}>
+          <div class="rub-defil-in">
+            <div class="rub-defil-cont">
+              [(#TITRE|supprimer_numero)]<br/>
+              <small>#DESCRIPTIF</small>
+            </div>
+            <div class="rub-defil-plus">
+              <a href="#URL_ARTICLE">En savoir plus</a>
+            </div>
+          </div>
+          </BOUCLE_focusR>
+          </BOUCLE_hierfocus>
+        </div><!-- rub-defil-container -->
+      </div><!-- page-actus -->
+

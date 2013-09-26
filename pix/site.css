@@ -1,0 +1,63 @@
+/*
+ * définitions en plus de celle provenant de style.css
+ * a destination du site www.picardie-nature.org
+ */
+BODY {
+/*	font-size:	14px; */
+}
+
+/* le div globcont contient tout le contenu de la page */
+/* surcharges du style defini dans style.css */
+DIV#globcont {
+        min-width:              1000px;
+        max-width:              1280px;
+        height:                 100%;
+        border-left:            solid 1px #808080;
+        border-right:           solid 1px #808080;
+        margin:                 auto;
+}
+
+A {
+	color:			#D90019;
+}
+
+A.a-obs {
+	color:			#D90019;
+}
+A.a-prot {
+	color:			#009687;
+}
+A.a-env {
+	color:			#D9C311;
+}
+A.a-anim {
+	color:			#9D5FD9;
+}
+
+#oreille_gauche {
+	left:			25px;
+	width:			200px;
+}
+.oreille li {
+	border-bottom:		none;
+}
+
+/* override styles spip */
+
+.spip_documents_center, .spip_doc_descriptif {
+	clear:		none;
+}
+H1, H2, H3, H4, H5, H6 {
+	font-family:            surface,arial,sans-serif;
+}
+
+/* avertissement IE */
+
+#ie-only {
+	display:	none;
+	_display:	block;
+	margin:		auto;
+	background:	#ffe0e0;
+	border:		solid 1px #ff8080;
+}
+

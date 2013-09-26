@@ -1,0 +1,48 @@
+<INCLURE{fond=entete_page}{id_rubrique=57}{deco=#EVAL{deco()}}>
+
+<BOUCLE_rub_globale(RUBRIQUES){id_rubrique=57}{tout}>
+
+<div id="bloc-article">
+<INCLURE{fond=page-menu}{deco=#EVAL{deco()}}{id_rubrique}>
+<INCLURE{fond=page-actus}{deco=#EVAL{deco()}}{id_rubrique}>
+
+    <div id="art-contenu">
+        <INCLURE{fond=bread_rub}{id_rubrique}>
+
+        <a name="contenu"></a>
+<BOUCLE_cal_all(sortie_dates_v){id_date_sortie = #ID_DATE_SORTIE}>
+	[<div class="art-logo">
+	  (#LOGO_RUBRIQUE||image_reduire{300})
+	</div>]
+	[<h1>(#NOM_SORTIE)</h1>]
+	[<h2>(#SOUS_TITRE)</h2>]
+        <div class="art-meta">
+        Le [(#DATE_SORTIE|affdate)]
+        </div>
+	
+        [<div class="art-chapo">
+        (#CHAPO)
+        </div>]
+
+        <div class="art-texte">
+        <p>
+        [(#DESC|image_reduire{700,0})]
+        </p>
+        <p>
+        Dur&eacute;e: #DUREE_HEURE heure(s)<br/>
+        RDV : Le [(#DATE_SORTIE|affdate_heure)] - #DESCRIPTION_LIEU <br/>
+        </p>
+        </div>
+
+      </div>
+
+    </div><!-- bloc-article -->
+
+</BOUCLE_cal_all>
+
+ </div>
+</div>
+
+
+<INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
+</BOUCLE_rub_globale>

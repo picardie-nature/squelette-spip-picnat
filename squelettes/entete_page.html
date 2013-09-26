@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>[(#NOM_SITE_SPIP|textebrut)]
+<BOUCLE_titart(ARTICLES){id_article}>
+[- (#TITRE)]
+</BOUCLE_titart>
+</B_titart>
+  <BOUCLE_titrub(RUBRIQUES){id_rubrique}>
+  [- (#TITRE|supprimer_numero)]
+  </BOUCLE_titrub>
+<//B_titart>
+  </title>
+<BOUCLE_descart(ARTICLES){id_article}>
+[<meta name="description" content="(#INTRODUCTION|couper{150}|textebrut)" />]
+</BOUCLE_descart>
+</B_descart>
+  <BOUCLE_descrub(RUBRIQUES){id_rubrique}>
+[<meta name="description" content="(#INTRODUCTION|couper{150}|textebrut)" />]
+  </BOUCLE_descrub>
+[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
+  <//B_descrub>
+<//B_descart>
+  <INCLURE{fond=inc-head}>
+  <link rel="stylesheet" type="text/css" href="#ENV{deco}/style.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="#ENV{deco}/site.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="#ENV{deco}/accueil.css" media="screen" />
+<!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="#ENV{deco}/accueil-ie.css" media="screen" />
+<![endif]-->
+  <link rel="stylesheet" type="text/css" href="#ENV{deco}/rubrique.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="#ENV{deco}/article.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="#ENV{deco}/recherche.css" media="screen" />
+
+  <link rel="shortcut icon" href="#ENV{deco}/favicon.png" />
+
+  <BOUCLE_css_secteur(RUBRIQUES){id_rubrique}>
+	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={1}|?{'obs/st.css',''})" media="screen" />]
+	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={14}|?{'prot/st.css',''})" media="screen" />]
+	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={24}|?{'env/st.css',''})" media="screen" />]
+	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={4}|?{'anim/st.css',''})" media="screen" />]
+  </BOUCLE_css_secteur>
+  
+</head>
+
+<body>
+  <div id="globcont">
+
+    <div id="bloc-haut">
+      <div id="b-haut-1cont">
+      <small><a href="#contenu" title="accéder au contenu">contenu</a></small>
+      <div id="b-haut-1">
+      <div id="b-haut-1in">
+      
+        <div id="b-haut-logo">
+          <a href="#URL_SITE_SPIP"><img src="#ENV{deco}/logo_top.png" alt="[(#NOM_SITE_SPIP)]" title="retour a l accueil"/></a>
+        </div>
+      
+        <div id="b-haut-pancartes">
+		<BOUCLE_pancarte_secteur(RUBRIQUES){id_rubrique}>
+			[<img src="#ENV{deco}/(#ID_SECTEUR|=={1}|?{'pancartes_observatoire.png',''})" />]
+			[<img src="#ENV{deco}/(#ID_SECTEUR|=={14}|?{'pancartes_protection.png',''})" />]
+			[<img src="#ENV{deco}/(#ID_SECTEUR|=={24}|?{'pancartes_environnement.png',''})" />]
+			[<img src="#ENV{deco}/(#ID_SECTEUR|=={4}|?{'pancartes_animation.png',''})" />]
+			[<img src="#ENV{deco}/(#ID_SECTEUR|=={100}|?{'pancartes_accueil.png',''})" />]
+		</BOUCLE_pancarte_secteur>
+          		<img src="#ENV{deco}/pancartes_accueil.png" />
+		<//B_pancarte_secteur>
+        </div>
+        
+        <div id="b-haut-rechcont">
+        <div id="b-haut-recherche" style="width:500px;">
+
+	    <div id="recherche">
+	      <form action="spip.php?page=recherche" method="get">
+		      <input name='page' value='recherche' type='hidden' />
+
+		      <label for="recherche">Recherche</label>
+		      <input type="text" name="recherche" id="recherche" value="Rechercher" onfocus="this.value='';" size="15"/>
+		      <input type="submit" id="rechok" value="OK"/>
+	      </form>
+	    </div>
+	    <div id="liens">
+	      <a href="#URL_PAGE{backend}">Flux RSS</a>
+	      |
+	      <a href="#URL_RUBRIQUE{106}">Newsletter</a>
+		|
+	     <div id="fb-root" style="display:inline;"></div>
+		<script src="http://connect.facebook.net/fr_FR/all.js#xfbml=1"></script>
+		<fb:like href="https://www.facebook.com/pages/Picardie-Nature/182270958508894"  show_faces="false" layout="button_count"></fb:like> |
+	      <script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'fr'}</script>
+	      <div id="ponebox" style="display:inline;">
+		<g:plusone size="small" annotation="bubble" href="http://www.picardie-nature.org/"></g:plusone>
+	      </div>
+	    </div>
+        </div>
+        </div>
+
+      </div>
+      </div>
+      </div> 
+
+      <div id="b-haut-2">&nbsp;
+      </div>
+    <div id="header-bottom" >
+      <a href="#URL_RUBRIQUE{100}" title="L'association">
+        <img class="head-bot-picto" src="#ENV{deco}/picto_herisson.png"/>
+        <span class="texte-picto texte-picto-asso">L'association</span>
+      </a>
+      <a href="#URL_RUBRIQUE{57}" title="Le calendrier des sorties">
+        <img  class="head-bot-picto" src="#ENV{deco}/picto_carnet.png"/>
+        <span class="texte-picto texte-picto-anim">Sorties Nature</span>
+      </a>
+      <a href="#URL_ARTICLE{1052}" title="SOS centre de sauvegarde">
+        <img  class="head-bot-picto" src="#ENV{deco}/picto_sos.png"/>
+        <span class="texte-picto texte-picto-prot">Centre de sauvegarde</span>
+      </a>
+      <a href="#URL_RUBRIQUE{128}" title="Les expositions">
+        <img  class="head-bot-picto" src="#ENV{deco}/picto_epi.png"/>
+        <span class="texte-picto texte-picto-anim">Les expositions</span>
+      </a>
+      <a href="#URL_RUBRIQUE{34}" title="Communiques de presse">
+        <img  class="head-bot-picto" src="#ENV{deco}/picto_news.png"/>
+        <span class="texte-picto texte-picto-asso">Communiqu&eacute;s<br/>de presse</span>
+      </a>
+      <a href="#URL_RUBRIQUE{186}" title="Revue naturaliste : l'Avocette">
+        <img  class="head-bot-picto" src="#ENV{deco}/picto_avocette.png"/>
+        <span class="texte-picto texte-picto-asso">Revue naturaliste</span>
+      </a>
+    </div>
+    </div><!-- bloc-haut -->

@@ -1,0 +1,129 @@
+/* définitions en plus à destination de la base d'observation (poste) */
+.ui-widget 
+{
+	font-size: 0.8em;
+}
+
+p.directive 
+{
+	border-left-width: 2px;
+	border-color: #707173;
+	border-left-style: solid;
+	padding-left: 3px;
+	font-size: 0.8em;
+	margin: 0px;
+	font-weight: bold;
+}
+
+p.valeur 
+{
+	margin: 2px;
+	padding-left: 6px;
+	font-family: monospace;
+	font-size: 1.2em;
+}
+
+#bobs-saisie-citations 
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#bobs-saisie-citations li 
+{
+	margin: 3px 3px 3px 0px;
+	padding: 0px;
+	float: left;
+	width: 300px;
+	height: 200px;
+	overflow: auto;
+	border-style: solid;
+	border-width: 1px 2px 2px 2px;
+	border-color: #D90019;
+}
+#bobs-saisie-citations h1
+{
+	margin: 0px;
+	padding: 2px;
+	font-size: 1.1em;
+	font-weight: normal;
+	background-color: #D90019;
+	color: #fff;
+}
+
+#bobs-saisie-citations h2
+{
+	margin: 0px;
+	padding: 2px;
+	padding-left: 6px;
+	font-size: 0.6em;
+	background-color: #D90019;
+	color: #fff;
+}
+
+#bobs-saisie-citations a 
+{
+	background-color: #d90019;
+	color:white;
+	text-decoration:none;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #d90019;
+}
+
+#bobs-saisie-citations a:hover
+{
+	background-color: white;
+	color: #d90019;
+}
+
+.bobs-saisie-citations-tag 
+{
+	color: white;
+	background-color: #d99da4;
+	margin-bottom: 1px;
+}	
+div#globcont {
+	min-width:0px;
+	margin-left: 145px;
+	margin-right: 145px;
+}
+
+.autocomplete {
+	background-color: white;
+	z-index:9999;
+}
+
+ul.bobs-liste {
+	list-style-type: none;
+	padding:0px;
+	margin:0px;
+}
+ul.bobs-liste-decor {
+	list-style-type: square;
+	padding: 20px;
+}
+ul.bobs-liste-obs {
+	list-style-type: none;
+	border-left-style: solid;
+	border-width: 3px;
+	border-left-color: #d99da4;
+}
+
+li.bobs-liste-obs-nonvalidee {
+	border-style: dashed;
+	padding: 3px;
+}
+.bobs-liste-titre {
+	font-size: 18px;
+}
+
+.bobs-commtr {
+	border-style: dashed;
+	border-width: 1px;
+	border-color: #D90019;
+	padding: 3px;
+	font-size: 14px;
+	background-color: white;
+}

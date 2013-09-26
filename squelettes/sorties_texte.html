@@ -1,0 +1,11 @@
+<BOUCLE_cal_rub(ARTICLES){id_rubrique=57}{age_redac<=0}{age_redac>=-40}{doublons} />
+<BOUCLE_cal_mot(ARTICLES){titre_mot=sortie}{age_redac<=0}{age_redac>=-40}{doublons} />
+<BOUCLE_cal_all(ARTICLES){!doublons}{par date_redac}>
+
+[(#DATE_REDAC|jour)] [(#DATE_REDAC|nom_mois)] <br/>
+#TITRE<br/>
+[(#TEXTE)]<br/>
+<a href="http://www.picardie-nature.org/#URL_ARTICLE">http://www.picardie-nature.org/#URL_ARTICLE</a><br/>
+<br/>
+
+</BOUCLE_cal_all>

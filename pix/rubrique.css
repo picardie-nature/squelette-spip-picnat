@@ -1,0 +1,275 @@
+
+#bloc-rubrique {
+	position:	relative;
+}
+
+#page-menu {
+/*	position:	absolute;
+	top:		0;
+	left:		20px;*/
+	float:left;
+	width:		220px;
+/*	border: solid 1px #000; */
+}
+
+#rub-contenu {
+	position: relative;
+	min-height:	50em;
+	margin-left:	250px;
+	margin-right:	235px; /* page-actus.width + 15 */
+	background-position:	top right;
+	background-repeat:	no-repeat;
+	text-align:	justify;
+/*	border: solid 1px #f00;*/
+}
+
+/* colonne actus */
+#page-actus {
+/*	position:	absolute;
+	top:		0;
+	right:		35px;*/
+	float:		right;
+	width:		175px;
+	margin-right:	35px;
+/*	border: solid 1px #0f0;*/
+}
+
+#page-actus-bg-cont {
+	position:	relative;
+	z-index:	0;
+}
+#page-actus-bg {
+	position:	absolute;
+	left:		-10px;
+	top:		-20px;
+	height:		1000px;
+	width:		195px;
+	background:	#d9d9d9;
+	opacity:	0.54;
+}
+
+#rub-defil-container {
+	width: 175px;
+}
+
+#rub-defil-container {
+	position: relative;
+	z-index:	2;
+	overflow:	hidden;
+/*	height:		944px; */
+	margin:		auto;
+/*	border: solid 1px #444;*/
+}
+
+.defil-arrow-t, .defil-arrow-b {
+
+}
+
+.defil-arrow-t {
+	position:	absolute;
+	top:		0;
+}
+.defil-arrow-b {
+	position:	absolute;
+	bottom:		0;
+}
+.defil-arrow-t * IMG,
+.defil-arrow-b * IMG {
+	margin-left:	80px; /* (#rub-defil-container.width - 28) / 2 */
+}
+
+.rub-defil-in {
+	background:	url(defil-plaqv.png);
+	padding:	10px;
+	width:		155px;
+	height:		268px;
+	text-align:	justify;
+	margin-bottom:	20px;
+/*	border: solid 1px #888;*/
+}
+
+.rub-defil-cont {
+	overflow-y:	auto;
+	height:		228px;
+}
+
+.rub-defil-plus {
+	overflow:	hidden;
+	height:		20px;
+}
+
+/* page generique */
+
+H1 {
+	font-size:	140%;
+}
+H2 {
+	font-size:	125%;
+}
+H3 {
+	font-size:	110%;
+}
+
+#bloc-generique {
+	position:	relative;
+}
+
+#gen-contenu {
+	position: relative;
+	min-height:	50em;
+	margin-left:	250px;
+	margin-right:	235px; /* page-actus.width + 15 */
+	background-position:	top right;
+	background-repeat:	no-repeat;
+	text-align:	justify;
+/*	border: solid 1px #f00;*/
+}
+
+#gen-contenu H1,
+#gen-contenu H2,
+#gen-contenu H3  {
+	color:		#737373;
+	margin-bottom:	0.1em;
+	text-align:	left;
+}
+
+
+/* debut du contenu */
+
+#breadcrumb {
+	margin-bottom:	1em;
+}
+
+#rub-contenu H1 {
+	color:		#737373;
+	width:		66%;
+	border-bottom:	solid 4px #D90019;
+	text-align:	left;
+}
+.rub-logo {
+	float:		left;
+	margin-right:	1em;
+}
+.rub-cont {
+/*	clear:		both;*/
+}
+.clearfix {
+	overflow: auto;
+}
+/* plaque d'un article */
+
+.plaq-article {
+	position:	relative;
+	background:	url(plaq_article.png);
+	width:		320px; /* 370 - 2*padding */
+	height:		330px; /* 380 - 2*padding */
+	padding:	25px;
+/*	border: solid 1px #888;*/
+}
+.plaq-article-cont {
+	position: 	relative;
+	width: 		320px;
+	height:		300px;
+	text-align:	justify;
+}
+.plaq-article-pair {
+	margin-left:	380px;
+	margin-top:	-380px;
+}
+.plaq-article-date {
+	position:	absolute;
+	top:		16px;
+	right:		30px;
+	font-size:	75%;
+}
+.plaq-article H2 {
+	color:		#737373;
+	border-bottom:	solid 4px #D90019;
+	margin-top:	0;
+	margin-bottom:	5px;
+	text-align:	left;
+}
+
+.plaq-article-cont {
+	overflow-y:	auto;
+}
+.plaq-article-plus {
+	position:	absolute;
+	bottom:		25px;
+	overflow:	hidden;
+	height:		20px;
+}
+
+DIV.plaq-titles {
+	border-left:	solid 1px #aaa;
+	margin-bottom:	0.3em;
+}
+DIV.plaq-titles H5 {
+	margin:		0;
+	margin-left:	1em;
+	font-size:	80%;
+	color:		#aaa;
+}
+DIV.plaq-titles UL {
+	margin:		0;
+	list-style-image: url(piquant-li.png);
+}
+DIV.plaq-titles LI {
+	margin:		0;
+	margin-left:	-0.8em;
+}
+
+/* menu */
+
+#page-menu * LI {
+	background:	#d9d9d9;
+	background-opacity: 0.6;
+	padding-left:	1em;
+}
+#page-menu LI SPAN {
+	display:	block;
+	border-bottom:	2px solid #fff;
+}
+#page-menu LI SPAN:hover {
+	border-bottom-color:	#D90019;
+}
+LI.menu-current SPAN A {
+	color:		#D90019;
+}
+LI.menu-current LI SPAN A {
+	font-size:	100%;
+	color:		#444;
+}
+LI.menu-current, LI.menu-current * LI {
+	background-color:		#d9bfc2 !important;
+}
+
+.menu-img {
+	width:		200px;
+	margin-bottom:	0;
+}
+.menu-obs IMG {
+	border-top-color:	#D90019;
+}
+.menu-prot IMG {
+	border-top-color:	#009687;
+}
+.menu-env IMG {
+	border-top-color:	#D9C311;
+}
+.menu-anim IMG {
+	border-top-color:	#9D5FD9;
+}
+
+.link-obs A {
+	color:	#D90019;
+}
+.link-prot A {
+	color:	#009687;
+}
+.link-env A {
+	color:	#D9C311;
+}
+.link-anim A {
+	color:	#9D5FD9;
+}

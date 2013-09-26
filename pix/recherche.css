@@ -1,0 +1,25 @@
+
+#bloc-recherche {
+	position:	relative;
+}
+
+#rech-contenu {
+	min-height:	50em;
+	margin-left:	250px;
+	margin-right:	235px; /* page-actus.width + 15 */
+	background-position:	top right;
+	background-repeat:	no-repeat;
+	text-align:	justify;
+	padding-left:	60px;
+	padding-right:	60px;
+/*	border: solid 1px #f00;*/
+}
+
+#rech-contenu H1,
+#rech-contenu H2,
+#rech-contenu H3  {
+	color:		#737373;
+	margin-bottom:	0.1em;
+	text-align:	left;
+}
+

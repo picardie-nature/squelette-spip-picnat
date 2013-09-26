@@ -1,0 +1,296 @@
+
+
+/* cartes superposees */
+
+#parent {
+/* border: solid 1px gray; */
+	position:	relative;
+ 	width:		936px;
+	height:		480px;
+	margin:		auto;
+}
+.sliding {
+/*  float: left; */
+	width:		492px;
+	height:		480px;
+	overflow:	hidden;
+}
+.content {
+	position:	relative;
+	background:	url(plaq_accueil.png);
+}
+
+#d1 {
+	position: absolute;
+	left: 0px;
+/*  border: solid 1px green; */
+	z-index:	4;
+}
+#d2 {
+	position:	absolute;
+	left:		148px;
+/*  border: solid 1px blue; */
+	z-index:	3;
+}
+#d3 {
+	position:	absolute;
+	left:		296px;
+/*  border: solid 1px yellow; */
+	z-index:	2;
+}
+#d4 {
+	position:	absolute;
+	left:		444px;
+	width:		492px;
+/*  border: solid 1px red; */
+	z-index:	1;
+}
+
+#parent:hover #contd1:hover #d2 {
+	left:		444px;
+	z-index:	6;
+}
+#parent:hover #contd1:hover #contd2 {
+	left:		444px;
+	z-index:	6;
+}
+#parent:hover #contd2:hover #d2 {
+	left:		148px;
+	z-index:	6;
+}
+#parent:hover #d2 {
+	left:		148px;
+	z-index:	9;
+}
+#parent:hover #contd1:hover #d3 {
+	left:		592px;
+	z-index:	5;
+}
+#parent:hover #contd2:hover #d3 {
+	z-index:	5;
+}
+#parent:hover #d3 {
+	left:		296px;
+	z-index:	10;
+}
+#parent:hover #contd1:hover #d3:hover {
+	left:		296px;
+	z-index:	8;
+}
+#parent:hover #d4 {
+	left:		740px;
+}
+#parent:hover #d4:hover {
+	left:		444px;
+	z-index:	11;
+}
+
+#parent:hover .sliding {
+	width:		188px;
+}
+
+
+
+#parent:hover DIV.sliding:hover {
+  width: 492px;
+  z-index: 8;
+/*  border: solid 2px black; */
+/*  overflow: auto; */
+}
+
+
+#parent:hover #d1 .content {
+  left: 0px;
+}
+
+#parent:hover #contd1:hover #d2 .content {
+  left: -296px;
+}
+
+#parent:hover #contd2:hover #d2 .content {
+  left: 0px;
+}
+
+#parent:hover #contd1:hover #d3 .content {
+  left: -296px;
+}
+
+#parent:hover #d4 .content {
+  left: -296px;
+}
+
+#parent:hover #d1:hover .content,
+#parent:hover #d2:hover .content,
+#parent:hover #d3:hover .content,
+#parent:hover #contd1:hover #d2:hover .content,
+#parent:hover #contd1:hover #d3:hover .content,
+#parent:hover #d4:hover .content {
+  left: 0px;
+}
+
+
+
+DIV.content {
+	position:	relative;
+	width:		492px;
+	height:		480px;
+	padding:	15px;
+	padding-left:	30px;
+}
+
+DIV.content P {
+	margin-right:	4em;
+}
+
+.rot-title { 
+	display:	block; 
+	position:	absolute;
+	background:	#fff;
+	opacity: 0.6; filter: alpha(opacity=60);
+	font-size:	140%;
+	text-align:	center;
+	width:		176px;
+	right:		-93px;
+	top:		60px;
+	-webkit-transform:	rotate(90deg);
+	-webkit-transform-origin: top left;
+	-moz-transform:		rotate(90deg);
+	-moz-transform-origin:	top left;
+	-o-transform:		rotate(90deg);
+	-o-transform-origin:	top left;
+/*	border: solid 1px red; */
+	border-bottom:	solid 2px;
+}
+
+.link-plus {
+	position:	absolute;
+	bottom:		50px;
+	right:		25px;
+}
+
+H1.accueil-title {
+	color:		#737373;
+	border-left:	solid 2px #737373;
+	padding-left:	0.3em;
+	font-size:	140%;
+	height:		25px;
+	margin-top:	8px;
+	margin-bottom:	8px;
+}
+
+IMG.accueil-img {
+	border-top:	solid 4px;
+}
+
+IMG.acc-pole-obs {
+	border-color:	#D90019;
+}
+IMG.acc-pole-prot {
+	border-color:	#009687;
+}
+IMG.acc-pole-env {
+	border-color:	#D9C311;
+}
+IMG.acc-pole-anim {
+	border-color:	#9D5FD9;
+}
+
+
+SPAN.pole-obs {
+	border-color:	#D90019;
+}
+SPAN.pole-prot {
+	border-color:	#009687;
+}
+SPAN.pole-env {
+	border-color:	#D9C311;
+}
+SPAN.pole-anim {
+	border-color:	#9D5FD9;
+}
+
+
+
+/* defilement actus */
+
+#bloc-actus-bg-cont {
+	position:	relative;
+	z-index:	-1;
+}
+#bloc-actus-bg {
+	position:	absolute;
+	left:		0;
+	top:		0;
+	width:		100%;
+	background:	#d9d9d9;
+	opacity:	0.54;
+}
+
+#bloc-actus-bg,
+#defil-container {
+	height: 195px;
+}
+
+#defil-container {
+	position: relative;
+	z-index:	2;
+	overflow:	hidden;
+	width:		944px;
+	margin:		auto;
+/*	border: solid 1px #444;*/
+}
+
+.defil-arrow-l, .defil-arrow-r {
+
+}
+
+.defil-arrow-l {
+	position:	absolute;
+	left:		0;
+}
+.defil-arrow-r {
+	position:	absolute;
+	right:		0;
+}
+.defil-arrow-l * IMG,
+.defil-arrow-r * IMG {
+	margin-top:	83px; /* (#defil-container.height - 28) / 2 */
+}
+
+.defil {
+	width:		288px;
+	height:		175px;
+	margin-left:	17px;
+	margin-right:	3px;
+	margin-top:	10px;
+	margin-bottom:	10px;
+	float: left;
+	background:	url(defil-plaq.png);
+}
+
+.defil-in {
+	padding:	10px;
+	width:		268px;
+	height:		135px;
+	text-align:	justify;
+	overflow: 	auto;
+/*	border: solid 1px #888;*/
+}
+.defil-in a:hover {
+	text-decoration: none;
+}
+
+.defil-in a {
+	color:		#737373;
+}
+
+.defil-cont {
+	overflow-y:	auto;
+	height:		135px;
+}
+
+.defil-plus {
+	overflow:	hidden;
+	height:		20px;
+	text-align:	right;
+}

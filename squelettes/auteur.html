@@ -1,0 +1,50 @@
+<BOUCLE_auteur_principal(AUTEURS) {id_auteur}{tout}>
+
+<INCLURE{fond=entete_page}{deco=#EVAL{deco()}}>
+
+
+    <div id="bloc-generique">
+
+      <INCLURE{fond=page-menu}{deco=#EVAL{deco()}}>
+
+      <div id="gen-contenu" class="clearfix">
+        <div id="breadcrumb">
+        <:info_auteurs:>[ &gt; (#NOM|couper{80})]
+        </div>
+
+                        <div class="cartouche">
+                                [(#LOGO_AUTEUR||image_reduire{200,200})]
+                                <h1 class="titre">#NOM</h1>
+                                [<p class="soustitre"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+                        </div>
+
+                        [<div class="texte">(#BIO)</div><br />]
+
+                                        <B_articles>
+                                        #ANCRE_PAGINATION
+                                        <h2><:articles_auteur:></h2>
+                                        [<p class="pagination">(#PAGINATION)</p>]
+                                        <ul>
+                                                <BOUCLE_articles(ARTICLES) {id_auteur} {par date}{inverse} {pagination 5}>
+                                                <li>
+                                                        <h3 [class="link-(#ID_SECTEUR|class_secteur)"]>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h3>
+                                                        [(#INTRODUCTION|couper{200})<br />]
+                                                        <small>[(#DATE|affdate)]</small>
+                                                </li>
+                                                </BOUCLE_articles>
+                                        </ul>
+                                        </B_articles>
+
+
+                        [<div>
+                        (#FORMULAIRE_ECRIRE_AUTEUR)
+                        </div>]
+
+      </div>
+      
+
+    </div><!-- bloc-generique -->
+
+		
+<INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
+</BOUCLE_auteur_principal>

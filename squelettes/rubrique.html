@@ -1,0 +1,99 @@
+<BOUCLE_rub_globale(RUBRIQUES){id_rubrique}{tout}>
+<INCLURE{fond=entete_page}{id_rubrique}{deco=#EVAL{deco()}}>
+
+    <div id="bloc-rubrique">
+
+      <INCLURE{fond=page-menu}{deco=#EVAL{deco()}}{id_rubrique}>
+      <INCLURE{fond=page-actus}{deco=#EVAL{deco()}}{id_rubrique}>
+
+      <div id="rub-contenu">
+
+        <INCLURE{fond=bread_rub}{id_rubrique}>
+      
+        <a name="contenu"></a>
+	[<h1>| (#TITRE|supprimer_numero)</h1>]
+
+	[<div class="rub-cont clearfix">
+	[<div class="rub-logo">
+	  (#LOGO_RUBRIQUE||image_reduire{300})
+	</div>]
+	(#TEXTE)
+	</div>]
+	
+	<BOUCLE_articles(ARTICLES){id_rubrique}{!titre_mot=focus}{par date}{inverse}>
+          <div class="plaq-article [(#COMPTEUR_BOUCLE|alterner{plaq-article-impair,plaq-article-pair})] ">
+	  <div class="plaq-article-date">
+	    [<small>publi&eacute; le (#DATE|affdate)</small>]
+	  </div>
+            <div class="plaq-article-cont">
+	      <h2[ title="(#TITRE|supprimer_numero)"]>| [(#TITRE|supprimer_numero|couper{35})]</h2>
+	      [<div>(#INTRODUCTION|image_reduire{310,0})</div>]
+            </div>
+            <div class="plaq-article-plus">
+	      <a href="#URL_ARTICLE"[ title="(#TITRE|supprimer_numero)]">Lire l'article</a>
+            </div>
+          </div>
+	</BOUCLE_articles>
+	<BOUCLE_sousrub2(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre}{tout}>
+          <div class="plaq-article [(#COMPTEUR_BOUCLE|alterner{plaq-article-impair, plaq-article-pair})] ">
+            <div class="plaq-article-cont">
+	      <h2[ title="(#TITRE|supprimer_numero)]">&gt; [(#TITRE|supprimer_numero)]</h2>
+  	      [<div>(#DESCRIPTIF)</div>]
+	      <B_sousrub>
+	      <div class="plaq-titles">
+	      <h5>rubriques</h5>
+	      <ul>
+	        <BOUCLE_sousrub(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre}{tout}>
+	        <li><a href="#URL_RUBRIQUE"[ title="(#TITRE|supprimer_numero)"]>[(#TITRE|supprimer_numero|couper{50})]</a></li>
+	        </BOUCLE_sousrub>
+	      </ul>
+	      </div>
+	      </B_sousrub>
+	      <B_artsousrub>
+	      <div class="plaq-titles">
+	      <h5>derniers articles publiés</h5>
+	      <ul>
+	        <BOUCLE_artsousrub(ARTICLES){id_rubrique}{par date}{inverse}{0,2}>
+	        <li><a href="#URL_ARTICLE"[ title="(#TITRE|supprimer_numero)"]>[(#TITRE|supprimer_numero|couper{50})]</a> [<small>(#DATE|affdate)</small>]</li>
+	        </BOUCLE_artsousrub>
+	      </ul>
+	      </div>
+	      </B_artsousrub>
+            </div>
+            <div class="plaq-article-plus">
+	      <a href="#URL_RUBRIQUE"[ title="(#TITRE|supprimer_numero)]">Tous les contenus</a>
+            </div>
+          </div>
+	</BOUCLE_sousrub2>
+	<div>
+	<style>
+		.rss_article {
+			background-color: white;
+			border-color: #d90019;
+			border-width: 2px;
+			border-style: solid;
+			padding: 5px;
+			margin-bottom: 5px;
+			min-height: 250px;
+		}
+		.rss_article img {
+			border-color: black;
+			border-style: solid;
+			border-width: 1px;
+			margin: 5px;
+		}
+	</style>
+	<div style="text-align:right;">
+		<a title="inverser le tri" href="#URL_RUBRIQUE&senstri=[(#ENV{senstri}|=={1}|?{'0','1'})]">ordre de tri [(#ENV{senstri}|=={1}|?{'&uarr;','&darr;'})]</a>
+	</div>
+	<BOUCLE_sa1(SYNDIC_ARTICLES){id_rubrique}{par titre}{inverse #ENV{senstri,1}}>
+		<div class="rss_article">
+			<a href="#URL_ARTICLE">#TITRE</a><br/>
+			<small>#DESCRIPTIF</small>
+		</div>
+	</BOUCLE_sa1>
+	</div>
+      </div>
+    </div><!-- bloc-rubrique -->
+<INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
+</BOUCLE_rub_globale>

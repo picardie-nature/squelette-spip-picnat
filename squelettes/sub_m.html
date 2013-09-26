@@ -1,0 +1,12 @@
+<B_do2_menu>
+<ul>
+<BOUCLE_do2_menu(RUBRIQUES){id_parent=#ENV{id_racine}}{par num titre}>
+	<li [(#ID_RUBRIQUE|=={#ENV{id_current}}|oui) class="menu_current"]>
+		<span><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></span>
+		#SET{the_id, -99}
+		[(#ENV{rubs_hier}|find{#ID_RUBRIQUE}|oui) #SET{the_id, #ID_RUBRIQUE}]
+		<INCLURE{fond=sub_m}{id_racine=#GET{the_id}}{id_current=#ENV{id_current}}{rubs_hier=#ENV{rubs_hier}}>
+	</li>
+</BOUCLE_do2_menu>
+</ul>
+</B_do2_menu>

@@ -1,0 +1,38 @@
+<INCLURE{fond=entete_page}{deco=#EVAL{deco()}}>
+<BOUCLE_rub_globale(RUBRIQUES){id_rubrique}{tout}>
+
+<div id="bloc-article">
+<INCLURE{fond=page-menu}{deco=#EVAL{deco()}}{id_rubrique}>
+<INCLURE{fond=page-actus}{deco=#EVAL{deco()}}{id_rubrique}>
+
+
+ <div id="art-contenu">
+<h1>Communiqués de presse</h1>
+<BOUCLE_cal_rub(ARTICLES){branche}{doublons} />
+<BOUCLE_cal_mot(ARTICLES){titre_mot=communique}{doublons} />
+<BOUCLE_cal_all(ARTICLES){!doublons}{par date}{inverse}>
+	<div class="cal ">
+	<table>
+	  <tr>
+	    <td valign="center" align="center">
+	      <div class="cal-date cal-date-[(#ID_SECTEUR|class_secteur)]">
+	        <div class="cal-jours">
+		  [(#DATE|jour)]
+		</div>
+		<div class="cal-mois">
+		  [(#DATE|nom_mois)]<br/>
+		 <small>[(#DATE|annee)]</small><br/>
+		</div>
+	      </div>
+	    </td>
+	    <td valign="top">
+	    	<a href="#URL_ARTICLE" class="a-[(#ID_SECTEUR|class_secteur)]"> #TITRE </a><br/>
+		<a href="#URL_ARTICLE" class="cal-a"><small>[(#TEXTE|couper{250})]</small></a>
+	    </td>
+	</table>
+	</div>
+</BOUCLE_cal_all>
+ </div>
+</div>
+<INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
+</BOUCLE_rub_globale>

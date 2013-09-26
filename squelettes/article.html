@@ -1,0 +1,51 @@
+<BOUCLE_art_global(ARTICLES){id_article}>
+<INCLURE{fond=entete_page}{id_rubrique}{id_article}{deco=#EVAL{deco()}}>
+
+
+    <div id="bloc-article">
+
+      <INCLURE{fond=page-menu}{deco=#EVAL{deco()}}{id_rubrique}>
+      <INCLURE{fond=page-actus}{deco=#EVAL{deco()}}{id_rubrique}{id_article=#ID_ARTICLE}>
+      
+      <div id="art-contenu">
+        <INCLURE{fond=bread_rub}{id_rubrique}>
+
+        <a name="contenu"></a>
+	[<div class="art-logo">
+	  (#LOGO_ARTICLE_RUBRIQUE||image_reduire{300})
+	</div>]
+	[<h1>(#TITRE|supprimer_numero)</h1>]
+	[<h2>(#SOUS_TITRE)</h2>]
+        <div class="art-meta">
+        Publi&eacute; le [(#DATE|affdate)][ par (#LESAUTEURS)]
+        </div>
+	
+        [<div class="art-chapo">
+        (#CHAPO)
+        </div>]
+
+        <div class="art-texte">
+        [(#TEXTE|image_reduire{700,0})]
+        </div>
+
+         [(#PETITION|?{' '})
+            <INCLURE{fond=inc-petition}{id_article}{self=#SELF}>
+         ]
+
+
+      <B_d>
+      	<h3>Documents associés à cette page</h3>
+      	<ul>
+      <BOUCLE_d(DOCUMENTS){id_article}{mode=document}>
+      		<li>
+			<a href="#FICHIER">#TITRE  [(#FICHIER|basename)]</a>
+		</li>
+      </BOUCLE_d>
+	</ul>
+      </B_d>
+      </div>
+
+    </div><!-- bloc-article -->
+
+<INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
+</BOUCLE_art_global>

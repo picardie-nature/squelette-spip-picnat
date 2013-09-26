@@ -1,0 +1,13 @@
+<div class="sub-menu">
+#SET{rubs_hier, #ARRAY}
+<BOUCLE_hier2(HIERARCHIE){id_rubrique}{tout}>
+	#SET{rubs_hier, #GET{rubs_hier}|push{#ID_RUBRIQUE}}
+</BOUCLE_hier2>
+
+#SET{the_id, -99}
+
+[(#GET{rubs_hier}|find{#ENV{id_racine}}|oui) #SET{the_id, #ENV{id_rubrique}}]
+<BOUCLE_outmenu2(RUBRIQUES){id_rubrique=#GET{the_id}}>
+	<INCLURE{fond=sub_m}{id_racine=#ID_SECTEUR}{id_current=#ID_RUBRIQUE}{rubs_hier=#GET{rubs_hier}}>
+</BOUCLE_outmenu2>
+</div>
