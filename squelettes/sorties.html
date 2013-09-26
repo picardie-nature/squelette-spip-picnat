@@ -9,40 +9,47 @@
 
  <div id="art-contenu">
  <h1>Calendrier des animations et sorties</h1>
+<style>
+	.calendrier_pole {
+		margin-left:0px;
+		border-bottom-width:0px; 
+		font-size:14px; 
+		color:white; 
+		text-decoration:none; 
+		padding:4px;
+		background-color: #660066;
+	}
+	.calendrier_pole1 { background-color: #9D5FD9; }
+	.calendrier_pole2 { background-color: #D90019; }
+	.calendrier_pole3 { background-color: #009687; }
+	.calendrier_pole4 { background-color: #D9C311; }
+	.calendrier_c_pole1 { color: #9D5FD9; }
+	.calendrier_c_pole2 { color: #D90019; }
+	.calendrier_c_pole3 { color: #009687; }
+	.calendrier_c_pole4 { color: #D9C311; }
 
 
-<BOUCLE_cal_all(sortie_dates_v){date_sortie > #ENV{date}>)}{par date_sortie}>
+</style>
 
-<!--
-#ETAT [(#DATE_SORTIE|affdate)] #NOM_SORTIE<br/>
-[(#INSCRIPTION_DATE_LIMITE|affdate)]<br/>
-#DESC<br/>
-#DESCRIPTION_LIEU<br/>
-<a href="http://www.picardie-nature.org/#URL_ARTICLE">http://www.picardie-nature.org/#URL_ARTICLE</a><br/>
-<br/>
--->
-
-    <div class="cal ">
-    <table>
-      <tr>
-        <td valign="center" align="center">
-          <div class="cal-date cal-date-anim">
-            <div class="cal-jours">[(#DATE_SORTIE|jour)]</div>
-            <div class="cal-mois">[(#DATE_SORTIE|nom_mois)] [(#DATE_SORTIE|annee)] </div>
-          </div>
-        </td>
-        <td valign="top">
-          <a href="spip.php?page=sortie&id_date_sortie=#ID_DATE_SORTIE" class="a-anim">#NOM_SORTIE</a><br/>
-          <a href="spip.php?page=sortie&id_date_sortie=#ID_DATE_SORTIE" class="cal-a">[(#DESC|)]</a><br/>
-        </td>
-    </table>
-    </div>
-
+<BOUCLE_cal_all(sortie_dates_resum_v){date_sortie >= #ENV{date}}>	
+	<div style="background-color: white;">
+		<h1 style="color:white;" class="calendrier_pole calendrier_pole#POLE">
+			<div style="float:right;"><small>#LIBELLE</small></div>
+			[(#DATE_SORTIE|nom_jour)] [(#DATE_SORTIE|affdate)] 
+		</h1>
+		<BOUCLE_cal_s(sortie_dates_v){date_sortie=#DATE_SORTIE}{pole=#POLE}{etat=3}>
+			<div style="padding-left: 5px; padding-right: 5px;">
+				<div style="float:right;" title="horaire rendez-vous">[(#DATE_HEURE_SORTIE|heures)]h[(#DATE_HEURE_SORTIE|minutes)]</div>
+				<h2><a style="color:#737373;" href="spip.php?page=sortie&id_date_sortie=#ID_DATE_SORTIE">#NOM_SORTIE</a></h2>
+				<p><a href="spip.php?page=sortie&id_date_sortie=#ID_DATE_SORTIE" style="color:#707070;">#DESC</a></p>
+				<div style="text-align: right;"><a class="calendrier_c_pole#POLE" href="spip.php?page=sortie&id_date_sortie=#ID_DATE_SORTIE">Plus de détails sur l'animation</a></div>
+				<div style="font-size: 12px;">Organisé par [(#STRUCTURE|?{#STRUCTURE,"Picardie Nature"})]</div>
+			</div>
+			<div class="calendrier_pole#POLE" style="height:2px;">&nbsp;</div>
+		</BOUCLE_cal_s>
+		
+	</div>
 </BOUCLE_cal_all>
-
- </div>
-</div>
-
-
+</div> <!-- art-contenu -->
 <INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
 </BOUCLE_rub_globale>
