@@ -7,42 +7,81 @@
 <INCLURE{fond=page-actus}{deco=#EVAL{deco()}}{id_rubrique}>
 
     <div id="art-contenu">
-        <INCLURE{fond=bread_rub}{id_rubrique}>
-
+        <div id="breadcrumb">
+		<a href="spip.php?rubrique4" title="Le pôle Découverte et Animation nature de l’association propose des activités de découverte nature pour contribuer à l’éducation populaire en matière d’étude et de protection de la biodiversité.">Découverte et Animation nature</a> &gt;
+		<a href="spip.php?page=sorties" title="Calendrier">Calendrier</a> &gt;
+	</div>
         <a name="contenu"></a>
 <BOUCLE_cal_all(sortie_dates_v){id_date_sortie = #ID_DATE_SORTIE}>
-	[<div class="art-logo">
-	  (#LOGO_RUBRIQUE||image_reduire{300})
-	</div>]
+	[<div class="art-logo">(#LOGO_RUBRIQUE||image_reduire{300})</div>]
 	[<h1>(#NOM_SORTIE)</h1>]
 	[<h2>(#SOUS_TITRE)</h2>]
-        <div class="art-meta">
-        Le [(#DATE_SORTIE|affdate)]
-        </div>
-	
-        [<div class="art-chapo">
-        (#CHAPO)
-        </div>]
-
+        <div class="art-meta">Le [(#DATE_SORTIE|affdate)]</div>
+        <div class="art-chapo">Organisé par #ORGA_PRENOM #ORGA_NOM #STRUCTURE</div>
         <div class="art-texte">
-        <p>
-        [(#DESC|image_reduire{700,0})]
-        </p>
-        <p>
-        Dur&eacute;e: #DUREE_HEURE heure(s)<br/>
-        RDV : Le [(#DATE_SORTIE|affdate_heure)] - #DESCRIPTION_LIEU <br/>
-        </p>
-        </div>
+		<div style="float:right;">
+			[(#ACCESSIBLE_MOBILITE_REDUITE|?{"<img src='http://sorties.picardie-nature.org/image/mobilite_reduite_1.png' alt='Accessible aux personnes à mobilité réduite'/>",""})]
+			[(#ACCESSIBLE_DEFICIENT_AUDITIF|?{"<img src='http://sorties.picardie-nature.org/image/deficient_auditif_1.png' alt='Accessible aux déficients auditifs'/>",""})]
+			[(#ACCESSIBLE_DEFICIENT_VISUEL|?{"<img src='http://sorties.picardie-nature.org/image/deficient_visuel_1.png' alt='Accessible aux déficients auditifs'/>",""})]
+		</div>
+		<p>#DESC</p>
+		<p>
+		Dur&eacute;e: #DUREE_HEURE heure(s)<br/>
+		RDV : <b>Le [(#DATE_HEURE_SORTIE|affdate)] à [(#DATE_HEURE_SORTIE|heures)]h[(#DATE_HEURE_SORTIE|minutes)] - #DESCRIPTION_LIEU</b> <br/>
+		Inscription : <b>[(#INSCRIPTION_PREALABLE|=={1}|?{"Animation sur inscription","Pas d'inscription"})] [(#INSCRIPTION_DATE_LIMITE|?{"avant le ",""})][(#INSCRIPTION_DATE_LIMITE|affdate)]</b><br/>
+		Contact : <b>[(#GESTION_PICNAT|=={1}|?{
+			"Picardie Nature 03.62.72.22.54"
+			,
+			#ORGA_PORTABLE #ORGA_MAIL
+		})]</b>
+		<p>Type d'activité :
+		<BOUCLE_sortie_type(sortie_type){id_sortie_type=#ID_SORTIE_TYPE}>
+			#LIBELLE
+		</BOUCLE_sortie_type></p>
+		<p>Public :
+		<BOUCLE_sortie_pub(sortie_public){id_sortie_public=#ID_SORTIE_PUBLIC}>
+			#LIBELLE
+		</BOUCLE_sortie_pub></p>
+		<p>Cadre :
+		<BOUCLE_sortie_cadre(sortie_cadre){id_sortie_cadre=#ID_SORTIE_CADRE}>
+			#LIBELLE
+		</BOUCLE_sortie_cadre></p>
+		<p>Pôle :
+		<BOUCLE_sortie_pole(sortie_pole){id_sortie_pole=#POLE}>
+			#LIBELLE
+		</BOUCLE_sortie_pole>
+		</p>
 
-      </div>
-
-    </div><!-- bloc-article -->
-
+		</p>
+		<style>#map { width:100%; height: 350px; }</style>
+		<script>
+			function aff_carte() {
+				var carte = new Carto('map');
+				var latitude = "#LATITUDE";
+				var longitude = "#LONGITUDE";
+				var point = new OpenLayers.LonLat(longitude,latitude);
+				point.transform(carte.map.displayProjection, carte.map.projection);
+				var markers = new OpenLayers.Layer.Markers( "Markers" );
+				carte.map.addLayer(markers);
+				var size = new OpenLayers.Size(169,120);
+				var offset = new OpenLayers.Pixel(-152,-116);
+				var icon = new OpenLayers.Icon('http://sorties.picardie-nature.org/image/marqueur_sortie.png', size, offset);
+				markers.addMarker(new OpenLayers.Marker(point.clone(),icon));
+				carte.map.moveTo(point,10);
+			}
+		</script>
+		[(#LATITUDE|?{
+		<script type="text/javascript" src="http://deco.picardie-nature.org/proj4js/lib/proj4js-compressed.js"></script>
+		<script type="text/javascript" src="http://maps.picardie-nature.org/OpenLayers-2.12/OpenLayers.js"></script>
+		<script type="text/javascript" src="http://maps.picardie-nature.org/carto.js"></script>
+		<div id="map"></div>
+		<script>
+			aff_carte();
+		</script>
+		})]
+        </div><!-- art-texte -->
 </BOUCLE_cal_all>
-
- </div>
-</div>
-
-
+   </div><!-- art-contenu-->
+</div><!-- bloc-article -->
 <INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
 </BOUCLE_rub_globale>

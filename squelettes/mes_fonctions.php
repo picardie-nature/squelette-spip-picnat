@@ -12,4 +12,10 @@ function class_secteur($id_secteur)
 		return '';
 	}
 }
+function zero2d($d)
+{
+	if (!empty($d))
+		return sprintf("%02d", $d);
+	return "";
+}
 ?>
