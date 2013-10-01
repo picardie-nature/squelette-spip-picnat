@@ -23,28 +23,13 @@
   <//B_descrub>
 <//B_descart>
   <INCLURE{fond=inc-head}>
-  <link rel="stylesheet" type="text/css" href="#ENV{deco}/style.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="#ENV{deco}/site.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="#ENV{deco}/accueil.css" media="screen" />
-<!--[if IE]>
-  <link rel="stylesheet" type="text/css" href="#ENV{deco}/accueil-ie.css" media="screen" />
-<![endif]-->
-  <link rel="stylesheet" type="text/css" href="#ENV{deco}/rubrique.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="#ENV{deco}/article.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="#ENV{deco}/recherche.css" media="screen" />
-
-  <link rel="shortcut icon" href="#ENV{deco}/favicon.png" />
-
-  <BOUCLE_css_secteur(RUBRIQUES){id_rubrique}>
-	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={1}|?{'obs/st.css',''})" media="screen" />]
-	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={14}|?{'prot/st.css',''})" media="screen" />]
-	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={24}|?{'env/st.css',''})" media="screen" />]
-	[<link rel="stylesheet" type="text/css" href="#ENV{deco}/(#ID_SECTEUR|=={4}|?{'anim/st.css',''})" media="screen" />]
-  </BOUCLE_css_secteur>
-  
+  <link rel="stylesheet" type="text/css" href="pix/picnat.css" media="screen" />
+  <link rel="shortcut icon" href="pix/favicon.png" />
 </head>
+<BOUCLE_body_secteur(RUBRIQUES){id_rubrique}>
+<body class="[(#ID_SECTEUR|class_secteur)]">
+</BOUCLE_body_secteur>
 
-<body>
   <div id="globcont">
 
     <div id="bloc-haut">
