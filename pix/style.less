@@ -88,6 +88,15 @@ DIV#b-haut-pancartes {
 	background-repeat:	no-repeat;
 }
 
+div#b-haut-pancartes-in {
+	width:			396px;
+	height:			160px;
+}
+
+body.obs div#b-haut-pancartes-in {
+	background-image:	url(pancartes_observatoire.png);
+}
+
 #b-haut-rechcont {
 	position:		absolute;
 	bottom:			0px;
@@ -150,19 +159,19 @@ DIV#b-haut-2 {
 	opacity:		60%;
 }
 A:hover .texte-picto-asso {
-	color:			#f00 ! important;
+	color:			@coul_association ! important;
 }
 A:hover .texte-picto-obs {
-	color:			#D90019 ! important;
+	color:			@coul_observatoire ! important;
 }
 A:hover .texte-picto-prot {
-	color:			#009687 ! important;
+	color:			@coul_protection_fs ! important;
 }
 A:hover .texte-picto-env {
-	color:			#D9C311 ! important;
+	color:			@coul_protection_env ! important;
 }
 A:hover .texte-picto-anim {
-	color:			#9D5FD9 ! important;
+	color:			@coul_decouverte ! important;
 }
 
 IMG.head-bot-picto {

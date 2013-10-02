@@ -12,32 +12,31 @@
 /*	border: solid 1px #000; */
 }
 
+@page_actus_w: 175px;
+@page_actus_margin: 35px;
+
 #rub-contenu {
 	position: relative;
 	min-height:	50em;
 	margin-left:	250px;
-	margin-right:	235px; /* page-actus.width + 15 */
+	margin-right:	(@page_actus_w+@page_actus_margin+15);
 	background-position:	top right;
 	background-repeat:	no-repeat;
 	text-align:	justify;
-/*	border: solid 1px #f00;*/
 }
 
 /* colonne actus */
 #page-actus {
-/*	position:	absolute;
-	top:		0;
-	right:		35px;*/
 	float:		right;
-	width:		175px;
-	margin-right:	35px;
-/*	border: solid 1px #0f0;*/
+	width:		@page_actus_w;
+	margin-right:	@page_actus_margin;
 }
 
 #page-actus-bg-cont {
 	position:	relative;
 	z-index:	0;
 }
+
 #page-actus-bg {
 	position:	absolute;
 	left:		-10px;
@@ -56,9 +55,7 @@
 	position: relative;
 	z-index:	2;
 	overflow:	hidden;
-/*	height:		944px; */
 	margin:		auto;
-/*	border: solid 1px #444;*/
 }
 
 .defil-arrow-t, .defil-arrow-b {
@@ -85,7 +82,6 @@
 	height:		268px;
 	text-align:	justify;
 	margin-bottom:	20px;
-/*	border: solid 1px #888;*/
 }
 
 .rub-defil-cont {
@@ -150,9 +146,10 @@ H3 {
 	float:		left;
 	margin-right:	1em;
 }
+
 .rub-cont {
-/*	clear:		both;*/
 }
+
 .clearfix {
 	overflow: auto;
 }
@@ -164,7 +161,6 @@ H3 {
 	width:		320px; /* 370 - 2*padding */
 	height:		330px; /* 380 - 2*padding */
 	padding:	25px;
-/*	border: solid 1px #888;*/
 }
 .plaq-article-cont {
 	position: 	relative;
