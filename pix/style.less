@@ -131,11 +131,18 @@ DIV#recherche {
 	top:			35%;
 }
 
-INPUT#rechok {
+input#rechok {
 	border:			none;
 	background:		#D90019;
 	color:			#fff;
 }
+
+body.env   input#rechok { background-color: @coul_protection_env; }
+body.prot  input#rechok { background-color: @coul_protection_fs; }
+body.anim  input#rechok { background-color: @coul_decouverte; }
+body.asso  input#rechok { background-color: @coul_association; }
+body.obs   input#rechok { background-color: @coul_observatoire; }
+
 
 #liens {
 	position:		absolute;
@@ -145,11 +152,23 @@ INPUT#rechok {
 	color:			#D90019;
 }
 
-/* b-haut-2 : ligne */
-DIV#b-haut-2 {
-	background:		#D90019;
+body.env   #liens { color: @coul_protection_env; }
+body.prot  #liens { color: @coul_protection_fs; }
+body.anim  #liens { color: @coul_decouverte; }
+body.asso  #liens { color: @coul_association; }
+body.obs   #liens { color: @coul_observatoire; }
+
+/* b-haut-2 : ligne sous le logo et les pancartes*/
+div#b-haut-2 {
 	height:			2px;
 }
+
+body.env   div#b-haut-2 { background-color: @coul_protection_env; }
+body.prot  div#b-haut-2 { background-color: @coul_protection_fs; }
+body.anim  div#b-haut-2 { background-color: @coul_decouverte; }
+body.asso  div#b-haut-2 { background-color: @coul_association; }
+body.obs   div#b-haut-2 { background-color: @coul_observatoire; }
+
 
 /* style rollover pour les picto de l'entete */
 #header-bottom {
