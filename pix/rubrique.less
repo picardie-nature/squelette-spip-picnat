@@ -118,13 +118,12 @@ H3 {
 	background-position:	top right;
 	background-repeat:	no-repeat;
 	text-align:	justify;
-/*	border: solid 1px #f00;*/
 }
 
 #gen-contenu H1,
 #gen-contenu H2,
 #gen-contenu H3  {
-	color:		#737373;
+	color:		@coul_texte_2;
 	margin-bottom:	0.1em;
 	text-align:	left;
 }
@@ -136,12 +135,19 @@ H3 {
 	margin-bottom:	1em;
 }
 
-#rub-contenu H1 {
-	color:		#737373;
+#rub-contenu h1 {
+	color:		@coul_texte_2;
 	width:		66%;
 	border-bottom:	solid 4px #D90019;
 	text-align:	left;
 }
+
+body.env   #rub-contenu h1 { border-color: @coul_protection_env; }
+body.prot  #rub-contenu h1 { border-color: @coul_protection_fs; }
+body.anim  #rub-contenu h1 { border-color: @coul_decouverte; }
+body.asso  #rub-contenu h1 { border-color: @coul_association; }
+body.obs   #rub-contenu h1 { border-color: @coul_observatoire; }
+
 .rub-logo {
 	float:		left;
 	margin-right:	1em;
@@ -179,12 +185,17 @@ H3 {
 	font-size:	75%;
 }
 .plaq-article H2 {
-	color:		#737373;
+	color:		@coul_texte_2;
 	border-bottom:	solid 4px #D90019;
 	margin-top:	0;
 	margin-bottom:	5px;
 	text-align:	left;
 }
+body.env   .plaq-article h2 { border-color: @coul_protection_env; }
+body.prot  .plaq-article h2 { border-color: @coul_protection_fs; }
+body.anim  .plaq-article h2 { border-color: @coul_decouverte; }
+body.asso  .plaq-article h2 { border-color: @coul_association; }
+body.obs   .plaq-article h2 { border-color: @coul_observatoire; }
 
 .plaq-article-cont {
 	overflow-y:	auto;
