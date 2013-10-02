@@ -216,11 +216,16 @@ DIV.plaq-titles LI {
 }
 
 /* menu */
-
+#page-menu h1 a {
+	color:		@coul_texte_2;
+}
 #page-menu * LI {
 	background:	#d9d9d9;
 	background-opacity: 0.6;
 	padding-left:	1em;
+}
+#page-menu * li a {
+	color: 		@coul_texte_2;
 }
 #page-menu LI SPAN {
 	display:	block;
@@ -229,9 +234,19 @@ DIV.plaq-titles LI {
 #page-menu LI SPAN:hover {
 	border-bottom-color:	#D90019;
 }
-LI.menu-current SPAN A {
-	color:		#D90019;
-}
+
+body.env  #page-menu li span:hover { border-bottom-color: @coul_protection_env; }
+body.prot #page-menu li span:hover { border-bottom-color: @coul_protection_fs; }
+body.anim #page-menu li span:hover { border-bottom-color: @coul_decouverte; }
+body.asso #page-menu li span:hover { border-bottom-color: @coul_association; }
+body.obs  #page-menu li span:hover { border-bottom-color: @coul_observatoire; }
+
+body.env  #page-menu * li.menu_current span a { color: @coul_protection_env; }
+body.prot #page-menu * li.menu_current span a { color: @coul_protection_fs; }
+body.anim #page-menu * li.menu_current span a { color: @coul_decouverte; }
+body.asso #page-menu * li.menu_current span a { color: @coul_association; }
+body.obs  #page-menu * li.menu_current span a { color: @coul_observatoire; }
+
 LI.menu-current LI SPAN A {
 	font-size:	100%;
 	color:		#444;
@@ -243,7 +258,6 @@ LI.menu-current, LI.menu-current * LI {
 .menu-img {
 	width:			200px;
 	margin-bottom:		0;
-	border-top-color:	@coul_association;
 }
 .menu-obs IMG {
 	border-top-color:	@coul_observatoire;
@@ -256,6 +270,9 @@ LI.menu-current, LI.menu-current * LI {
 }
 .menu-anim IMG {
 	border-top-color:	@coul_decouverte;
+}
+.menu-asso IMG {
+	border-top-color:	@coul_association;
 }
 
 .link-obs A {
