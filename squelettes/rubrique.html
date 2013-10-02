@@ -83,8 +83,9 @@
 			margin: 5px;
 		}
 	</style>
+	<B_sa1>
 	<div style="text-align:right;">
-		<a title="inverser le tri" href="#URL_RUBRIQUE&senstri=[(#ENV{senstri}|=={1}|?{'0','1'})]">ordre de tri [(#ENV{senstri}|=={1}|?{'&uarr;','&darr;'})]</a>
+		<a title="inverser le tri" href="#URL_RUBRIQUE&senstri=[(#ENV{senstri}|=={1}|?{1,0})]">ordre de tri [(#ENV{senstri}|=={1}|?{'&uarr;','&darr;'})]</a>
 	</div>
 	<BOUCLE_sa1(SYNDIC_ARTICLES){id_rubrique}{par titre}{inverse #ENV{senstri,1}}>
 		<div class="rss_article">
