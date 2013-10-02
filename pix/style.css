@@ -202,7 +202,7 @@ DIV#bloc-bas {
 	height:			62px;
 }
 #bas-logos A.cg80 {
-	width:			167px;
+	width:			62px;
 }
 IMG.bas-logos-picto {
 	position:		absolute;
@@ -217,12 +217,12 @@ IMG.bas-logos-picto:hover {
 
 IMG.bas-logos-picto-cg80 {
 	position:		absolute;
-	clip:			rect(62px 167px 124px 0);
+	clip:			rect(62px 62px 124px 0);
 	margin-top:		-62px;
 }
 IMG.bas-logos-picto-cg80:hover {
 	position:		absolute;
-	clip:			rect(0 167px 62px 0);
+	clip:			rect(0 62px 62px 0);
 	margin-top:		0px;
 }
 
