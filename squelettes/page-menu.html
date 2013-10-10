@@ -3,7 +3,7 @@
 	<div class="oreille" id="oreille_gauche" style="position:relative; overflow: visible;">
 	  <BOUCLE_menu_obs(RUBRIQUES){id_rubrique=1}>
 	    <h1 class="menu-obs"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h1>
-	    <a class="menu-obs" href="#URL_RUBRIQUE"><img class="menu-img" src="#ENV{deco}/obs/plaq-accueil-obs.png"/></a>
+	    <a class="menu-obs" href="#URL_RUBRIQUE"><img class="menu-img" src="pix/obs/plaq-accueil-obs.png"/></a>
 	    <INCLURE{fond=sub_menu}{id_rubrique=#ENV{id_rubrique}}{id_racine=#ID_RUBRIQUE}>
 	  </BOUCLE_menu_obs>
 	  <BOUCLE_menu_prot(RUBRIQUES){id_rubrique=14}>
