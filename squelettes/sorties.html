@@ -9,27 +9,6 @@
 
  <div id="art-contenu">
  <h1>Calendrier des activités nature et environnement</h1>
-<style>
-	.calendrier_pole {
-		margin-left:0px;
-		border-bottom-width:0px; 
-		font-size:14px; 
-		color:white; 
-		text-decoration:none; 
-		padding:4px;
-		background-color: #660066;
-	}
-	.calendrier_pole1 { background-color: #9D5FD9; }
-	.calendrier_pole2 { background-color: #D90019; }
-	.calendrier_pole3 { background-color: #009687; }
-	.calendrier_pole4 { background-color: #D9C311; }
-	.calendrier_c_pole1 { color: #9D5FD9; }
-	.calendrier_c_pole2 { color: #D90019; }
-	.calendrier_c_pole3 { color: #009687; }
-	.calendrier_c_pole4 { color: #D9C311; }
-
-
-</style>
 <BOUCLE_cal_all(sortie_dates_resum_v){date_sortie >= #ENV{date}}>	
 	<div style="background-color: white;">
 		<h1 style="color:white;" class="calendrier_pole calendrier_pole#POLE">
