@@ -9,10 +9,10 @@
 
     <div id="defil-container">
     <div class="defil-arrow-l">
-          <a href="#" onClick="defil_dn(); return false;"><img src="#EVAL{deco()}/defil-g.png" alt="&lt;&lt;"></a>
+          <a href="#" onClick="defil_dn(); return false;"><img src="pix/defil-g.png" alt="&lt;&lt;"></a>
     </div>
     <div class="defil-arrow-r">
-      <a href="#" onClick="defil_up(); return false;"><img src="#EVAL{deco()}/defil-d.png" alt="&gt;&gt;"></a>
+      <a href="#" onClick="defil_up(); return false;"><img src="pix/defil-d.png" alt="&gt;&gt;"></a>
     </div>
 
     <B_top>
@@ -125,7 +125,7 @@
       <div class="content">
 <BOUCLE_rubobs(RUBRIQUES){id_rubrique=1}>
         [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
-        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-obs" src="[(#EVAL{deco()})/obs/plaq-accueil-obs.png]"></a><br/>
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-obs" src="pix/obs/plaq-accueil-obs.png"></a><br/>
         <p><small>#DESCRIPTIF</small></p>
         <p>
           <BOUCLE_artpoleobs(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
@@ -144,7 +144,7 @@
       <div class="content">
 <BOUCLE_rubprot(RUBRIQUES){id_rubrique=14}>
         [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
-        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-prot" src="[(#EVAL{deco()})/prot/plaq-accueil-prot.png]"></a><br/>
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-prot" src="pix/prot/plaq-accueil-prot.png"></a><br/>
         <p><small> #DESCRIPTIF</small></p>
         <p>
           <BOUCLE_artpoleprot(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
@@ -162,7 +162,7 @@
       <div class="content">
 <BOUCLE_rubenv(RUBRIQUES){id_rubrique=24}>
         [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
-        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-env" src="[(#EVAL{deco()})/env/plaq-accueil-env.png]"></a><br/>
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-env" src="pix/env/plaq-accueil-env.png"></a><br/>
         <p><small>#DESCRIPTIF</small></p>
         <p>
           <BOUCLE_artpoleenv(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
@@ -182,7 +182,7 @@
       <div class="content">
 <BOUCLE_rubanim(RUBRIQUES){id_rubrique=4}>
         [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
-        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-anim" src="[(#EVAL{deco()})/anim/plaq-accueil-anim.png]"></a><br/>
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-anim" src="pix/anim/plaq-accueil-anim.png"></a><br/>
         <p><small>#DESCRIPTIF</small></p>
         <p>
           <BOUCLE_artpoleanim(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
@@ -200,4 +200,4 @@
     
     </div><!-- bloc-plaques -->
 
-<INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
+<INCLURE{fond=pied_page}>
