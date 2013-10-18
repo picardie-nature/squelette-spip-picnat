@@ -9,7 +9,7 @@ function class_secteur($id_secteur)
 	if (isset ($classes[$id_secteur])) {
 		return $classes[$id_secteur];
 	} else {
-		return '';
+		return 'def';
 	}
 }
 function zero2d($d)

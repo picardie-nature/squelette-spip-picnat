@@ -3,14 +3,12 @@
 /* cartes superposees */
 
 #parent {
-/* border: solid 1px gray; */
 	position:	relative;
  	width:		936px;
 	height:		480px;
 	margin:		auto;
 }
 .sliding {
-/*  float: left; */
 	width:		492px;
 	height:		480px;
 	overflow:	hidden;
@@ -23,26 +21,22 @@
 #d1 {
 	position: absolute;
 	left: 0px;
-/*  border: solid 1px green; */
 	z-index:	4;
 }
 #d2 {
 	position:	absolute;
 	left:		148px;
-/*  border: solid 1px blue; */
 	z-index:	3;
 }
 #d3 {
 	position:	absolute;
 	left:		296px;
-/*  border: solid 1px yellow; */
 	z-index:	2;
 }
 #d4 {
 	position:	absolute;
 	left:		444px;
 	width:		492px;
-/*  border: solid 1px red; */
 	z-index:	1;
 }
 
@@ -94,8 +88,6 @@
 #parent:hover DIV.sliding:hover {
   width: 492px;
   z-index: 8;
-/*  border: solid 2px black; */
-/*  overflow: auto; */
 }
 
 
@@ -183,30 +175,30 @@ IMG.accueil-img {
 }
 
 IMG.acc-pole-obs {
-	border-color:	#D90019;
+	border-color:	@coul_observatoire;
 }
 IMG.acc-pole-prot {
-	border-color:	#009687;
+	border-color:	@coul_protection_fs;
 }
 IMG.acc-pole-env {
-	border-color:	#D9C311;
+	border-color:	@coul_protection_env;
 }
 IMG.acc-pole-anim {
-	border-color:	#9D5FD9;
+	border-color:	@coul_decouverte;
 }
 
 
 SPAN.pole-obs {
-	border-color:	#D90019;
+	border-color:	@coul_observatoire;
 }
 SPAN.pole-prot {
-	border-color:	#009687;
+	border-color:	@coul_protection_fs;
 }
 SPAN.pole-env {
-	border-color:	#D9C311;
+	border-color:	@coul_protection_env;
 }
 SPAN.pole-anim {
-	border-color:	#9D5FD9;
+	border-color:	@coul_decouverte;
 }
 
 
@@ -237,7 +229,6 @@ SPAN.pole-anim {
 	overflow:	hidden;
 	width:		944px;
 	margin:		auto;
-/*	border: solid 1px #444;*/
 }
 
 .defil-arrow-l, .defil-arrow-r {
@@ -281,7 +272,7 @@ SPAN.pole-anim {
 }
 
 .defil-in a {
-	color:		#737373;
+	color:		@coul_texte_3 !important;
 }
 
 .defil-cont {

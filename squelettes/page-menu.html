@@ -3,27 +3,27 @@
 	<div class="oreille" id="oreille_gauche" style="position:relative; overflow: visible;">
 	  <BOUCLE_menu_obs(RUBRIQUES){id_rubrique=1}>
 	    <h1 class="menu-obs"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h1>
-	    <a class="menu-obs" href="#URL_RUBRIQUE"><img class="menu-img" src="#ENV{deco}/obs/plaq-accueil-obs.png"/></a>
+	    <a class="menu-obs" href="#URL_RUBRIQUE"><img class="menu-img" src="pix/obs/plaq-accueil-obs.png"/></a>
 	    <INCLURE{fond=sub_menu}{id_rubrique=#ENV{id_rubrique}}{id_racine=#ID_RUBRIQUE}>
 	  </BOUCLE_menu_obs>
 	  <BOUCLE_menu_prot(RUBRIQUES){id_rubrique=14}>
 	    <h1><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h1>
-	    <a class="menu-prot" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="#ENV{deco}/prot/plaq-accueil-prot.png" [title="(#TITRE|supprimer_numero)"]/></a>
+	    <a class="menu-prot" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="pix/prot/plaq-accueil-prot.png" [title="(#TITRE|supprimer_numero)"]/></a>
 	    <INCLURE{fond=sub_menu}{id_rubrique=#ENV{id_rubrique}}{id_racine=#ID_RUBRIQUE}>
 	  </BOUCLE_menu_prot>
 	  <BOUCLE_menu_env(RUBRIQUES){id_rubrique=24}>
 	    <h1><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h1>
-	    <a class="menu-env" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="#ENV{deco}/env/plaq-accueil-env.png" [title="(#TITRE|supprimer_numero)"]/></a>
+	    <a class="menu-env" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="pix/env/plaq-accueil-env.png" [title="(#TITRE|supprimer_numero)"]/></a>
 	    <INCLURE{fond=sub_menu}{id_rubrique=#ENV{id_rubrique}}{id_racine=#ID_RUBRIQUE}>
 	  </BOUCLE_menu_env>
 	  <BOUCLE_menu_anim(RUBRIQUES){id_rubrique=4}>
 	    <h1><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h1>
-	    <a class="menu-anim" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="#ENV{deco}/anim/plaq-accueil-anim.png" [title="(#TITRE|supprimer_numero)"]/></a>
+	    <a class="menu-anim" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="pix/anim/plaq-accueil-anim.png" [title="(#TITRE|supprimer_numero)"]/></a>
 	    <INCLURE{fond=sub_menu}{id_rubrique=#ENV{id_rubrique}}{id_racine=#ID_RUBRIQUE}>
 	  </BOUCLE_menu_anim>
 	  <BOUCLE_menu_asso(RUBRIQUES){id_rubrique=100}>
 	    <h1><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h1>
-	    <a class="menu-asso" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="#ENV{deco}/asso/menu-asso.png" [title="(#TITRE|supprimer_numero)"]/></a>
+	    <a class="menu-asso" href="#URL_RUBRIQUE"  [title="(#TITRE|supprimer_numero)"]><img class="menu-img" src="pix/asso/menu-asso.png" [title="(#TITRE|supprimer_numero)"]/></a>
 	    <INCLURE{fond=sub_menu}{id_rubrique=#ENV{id_rubrique}}{id_racine=#ID_RUBRIQUE}>
 	  </BOUCLE_menu_asso>
 	</div>

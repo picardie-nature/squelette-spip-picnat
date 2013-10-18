@@ -88,6 +88,31 @@ DIV#b-haut-pancartes {
 	background-repeat:	no-repeat;
 }
 
+div#b-haut-pancartes-in {
+	width:			396px;
+	height:			160px;
+}
+
+body.obs div#b-haut-pancartes-in {
+	background-image:	url(pancartes_observatoire.png);
+}
+
+body.prot div#b-haut-pancartes-in {
+	background-image:	url(pancartes_protection.png);
+}
+
+body.env div#b-haut-pancartes-in {
+	background-image:	url(pancartes_environnement.png);
+}
+
+body.anim div#b-haut-pancartes-in {
+	background-image:	url(pancartes_animation.png);
+}
+
+body.asso div#b-haut-pancartes-in {
+	background-image:	url(pancartes_accueil.png);
+}
+
 #b-haut-rechcont {
 	position:		absolute;
 	bottom:			0px;
@@ -106,11 +131,18 @@ DIV#recherche {
 	top:			35%;
 }
 
-INPUT#rechok {
+input#rechok {
 	border:			none;
 	background:		#D90019;
 	color:			#fff;
 }
+
+body.env   input#rechok { background-color: @coul_protection_env; }
+body.prot  input#rechok { background-color: @coul_protection_fs; }
+body.anim  input#rechok { background-color: @coul_decouverte; }
+body.asso  input#rechok { background-color: @coul_association; }
+body.obs   input#rechok { background-color: @coul_observatoire; }
+
 
 #liens {
 	position:		absolute;
@@ -120,11 +152,28 @@ INPUT#rechok {
 	color:			#D90019;
 }
 
-/* b-haut-2 : ligne */
-DIV#b-haut-2 {
-	background:		#D90019;
+body.env   #liens { color: @coul_protection_env; }
+body.prot  #liens { color: @coul_protection_fs; }
+body.anim  #liens { color: @coul_decouverte; }
+body.asso  #liens { color: @coul_association; }
+body.obs   #liens { color: @coul_observatoire; }
+
+/* b-haut-2 : ligne sous le logo et les pancartes*/
+div#b-haut-2 {
 	height:			2px;
 }
+
+body.env   div#b-haut-2 { background-color: @coul_protection_env; }
+body.prot  div#b-haut-2 { background-color: @coul_protection_fs; }
+body.anim  div#b-haut-2 { background-color: @coul_decouverte; }
+body.asso  div#b-haut-2 { background-color: @coul_association; }
+body.obs   div#b-haut-2 { background-color: @coul_observatoire; }
+
+body.env #rub-contenu, body.env #art-contenu { background-image:  url(piquants-env.png); }
+body.obs #rub-contenu, body.obs #art-contenu { background-image:  url(piquants-obs.png); }
+body.anim #rub-contenu, body.anim #art-contenu { background-image: url(piquants-anim.png); }
+body.asso #rub-contenu, body.asso #art-contenu { background-image: url(piquants-asso.png); }
+body.prot #rub-contenu, body.prot #art-contenu { background-image: url(piquants-prot.png); }
 
 /* style rollover pour les picto de l'entete */
 #header-bottom {
@@ -150,19 +199,22 @@ DIV#b-haut-2 {
 	opacity:		60%;
 }
 A:hover .texte-picto-asso {
-	color:			#f00 ! important;
+	color:			@coul_association ! important;
 }
 A:hover .texte-picto-obs {
-	color:			#D90019 ! important;
+	color:			@coul_observatoire ! important;
 }
 A:hover .texte-picto-prot {
-	color:			#009687 ! important;
+	color:			@coul_protection_fs ! important;
 }
 A:hover .texte-picto-env {
-	color:			#D9C311 ! important;
+	color:			@coul_protection_env ! important;
 }
 A:hover .texte-picto-anim {
-	color:			#9D5FD9 ! important;
+	color:			@coul_decouverte ! important;
+}
+A:hover .texte-picto-avocette {
+	color:			@coul_avocette ! important;
 }
 
 IMG.head-bot-picto {
@@ -392,29 +444,19 @@ div.autocomplete ul li {
 	padding: 5px;
 }
 
-.cal-date- {
-}
-
-.cal-date-obs {
-	border-color: #D90019;
-}
-
-.cal-date-anim {
-	border-color: #9D5FD9;
-}
-
-.cal-date-prot {
-	border-color: #006987;
-}
-.cal-date-asso {
-	border-color: #9D5FD9;
-}
-
-
+.cal-date-obs { border-color: @coul_observatoire; }
+.cal-date-anim { border-color: @coul_decouverte; }
+.cal-date-prot { border-color: @coul_protection_fs; }
+.cal-date-asso { border-color: @coul_association; }
+.cal-date-env { border-color: @coul_protection_env; }
 .cal-a {
-	color: black;
+	color: black !important;
 }
 .cal-a:hover {
 	text-decoration: none;
 }
-
+.a-asso { color: @coul_association !important; }
+.a-obs { color: @coul_observatoire !important; }
+.a-anim { color: @coul_decouverte !important; }
+.a-prot { color: @coul_protection_fs !important; }
+.a-env { color: @coul_protection_env !important; }
