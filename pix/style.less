@@ -444,29 +444,19 @@ div.autocomplete ul li {
 	padding: 5px;
 }
 
-.cal-date- {
-}
-
-.cal-date-obs {
-	border-color: #D90019;
-}
-
-.cal-date-anim {
-	border-color: #9D5FD9;
-}
-
-.cal-date-prot {
-	border-color: #006987;
-}
-.cal-date-asso {
-	border-color: #9D5FD9;
-}
-
-
+.cal-date-obs { border-color: @coul_observatoire; }
+.cal-date-anim { border-color: @coul_decouverte; }
+.cal-date-prot { border-color: @coul_protection_fs; }
+.cal-date-asso { border-color: @coul_association; }
+.cal-date-env { border-color: @coul_protection_env; }
 .cal-a {
-	color: black;
+	color: black !important;
 }
 .cal-a:hover {
 	text-decoration: none;
 }
-
+.a-asso { color: @coul_association !important; }
+.a-obs { color: @coul_observatoire !important; }
+.a-anim { color: @coul_decouverte !important; }
+.a-prot { color: @coul_protection_fs !important; }
+.a-env { color: @coul_protection_env !important; }
