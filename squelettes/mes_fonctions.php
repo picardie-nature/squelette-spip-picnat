@@ -12,6 +12,12 @@ function class_secteur($id_secteur)
 		return 'def';
 	}
 }
+function sortie_pole($id_secteur)
+{
+	$pole = array(1 => 2, 14 => 3, 24 => 4, 4 => 1);
+	return $pole[$id_secteur];
+}
+
 function zero2d($d)
 {
 	if (!empty($d))

@@ -1,0 +1,203 @@
+<INCLURE{fond=entete_page}{id_rubrique=100}>
+
+    <div id="bloc-actus">
+    
+    <div id="bloc-actus-bg-cont">
+      <div id="bloc-actus-bg">
+      </div>
+    </div>
+
+    <div id="defil-container">
+    <div class="defil-arrow-l">
+          <a href="#" onClick="defil_dn(); return false;"><img src="pix/defil-g.png" alt="&lt;&lt;"></a>
+    </div>
+    <div class="defil-arrow-r">
+      <a href="#" onClick="defil_up(); return false;"><img src="pix/defil-d.png" alt="&gt;&gt;"></a>
+    </div>
+
+    <B_top>
+    &nbsp; <!-- magie noir ! si absent pas de fleche dans IE -->
+    <BOUCLE_top(ARTICLES){titre_mot=page_sommaire}{par date}{inverse}>
+        <div id="defil-#COMPTEUR_BOUCLE" class="defil">
+      		<div class="defil-in">
+			<b><a style="font-size: 12px; color:#333;" href="#URL_ARTICLE">#TITRE</a></b><br/>
+			<small><a style="font-size: 12px;" href="#URL_ARTICLE">[(#INTRODUCTION|image_reduire{125,0})]</a></small>
+		</div>
+		<div class="defil-plus">
+			<a href="#URL_ARTICLE">En savoir plus</a>
+		</div>	
+	</div>
+    </BOUCLE_top>
+    <script>
+        var defil_first_id = 1;
+	var defil_max_id = #COMPTEUR_BOUCLE;
+	var defil_interval = 3;
+	var defil_sens = true;
+	var defil_pause = false;
+	var picnat_top_elems;
+	function picnat_defil_init() {
+		clicnat_top_elems = jQuery('.defil');
+		for (var i=0; i < clicnat_top_elems.length; i++) {
+			var e = jQuery(clicnat_top_elems[i]);
+			if (i >= 3) {
+				e.hide();
+			}
+		}
+
+		jQuery('#bloc-actus').hover(
+			function () { defil_pause = true; }, 
+			function () { defil_pause = false; } 
+		);
+		window.setTimeout(picnat_defil_auto, 5000);
+	}
+
+	function picnat_defil_auto() {
+		var t_out = 5000;
+		if (!defil_pause) {
+			if (!picnat_defil(defil_sens)) {
+				defil_sens = !defil_sens;
+			}
+		} else {
+			t_out = 500;
+		}
+		window.setTimeout(picnat_defil_auto, t_out);
+	}
+
+	function picnat_defil(avance) {
+		var i;
+		for (i=0; i < clicnat_top_elems.length; i++) {
+			var e = jQuery(clicnat_top_elems[i]);
+			if (e.css('display') == 'block') {
+				break;
+			}
+		}
+		if (avance) {
+			if (i+defil_interval < clicnat_top_elems.length) {
+				var ehide = jQuery(clicnat_top_elems[i]);
+				ehide.attr('toshow', i+defil_interval);
+				ehide.hide(function () {
+					var i = jQuery(this).attr('toshow');
+					jQuery(clicnat_top_elems[i]).show('slide',null,500);
+				});
+			} else {
+				return false;
+			}
+		} else {
+			if (i-1 >= 0) {
+				var eshow = jQuery(clicnat_top_elems[i-1]);
+				eshow.attr('tohide',  i+defil_interval-1);
+				eshow.show(function() {
+					var i = jQuery(this).attr('tohide');
+					//if (!$.browser.msie) {
+						jQuery(clicnat_top_elems[i]).hide('slide',null,500);
+					/*} else {
+						jQuery(clicnat_top_elems[i]).hide();
+					}*/
+				});
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+	picnat_defil_init();
+
+	function defil_up() {
+		picnat_defil(true);
+		return;
+	}
+
+	function defil_dn() {
+		picnat_defil(false);
+		return;
+	}
+    </script>
+    </B_top>
+    </div>
+
+    </div><!-- bloc-actus -->
+
+    <div id="bloc-plaques">
+    
+<div id="parent">
+  <div id="contd1">
+    <div id="d1" class="sliding">
+      <div class="content">
+<BOUCLE_rubobs(RUBRIQUES){id_rubrique=1}>
+        [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-obs" src="pix/obs/plaq-accueil-obs.png"></a><br/>
+        <p><small>#DESCRIPTIF</small></p>
+        <p>
+          <BOUCLE_artpoleobs(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
+            <a class="a-obs" href="#URL_ARTICLE"[ title="(#TITRE|supprimer_numero)"]>[(#TITRE|supprimer_numero|couper{50})]</a> [<small>(#DATE|affdate)</small>]<br />
+          </BOUCLE_artpoleobs>
+        </p>
+        <p class="link-plus">
+	  <a class="a-obs" href="#URL_RUBRIQUE">Entrer dans le pôle</a>
+        </p>
+        [<span class="rot-title pole-obs">&nbsp;&nbsp;(#TITRE|supprimer_numero)</span>]
+</BOUCLE_rubobs>
+      </div>
+    </div>
+  <div id="contd2">
+    <div id="d2" class="sliding">
+      <div class="content">
+<BOUCLE_rubprot(RUBRIQUES){id_rubrique=14}>
+        [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-prot" src="pix/prot/plaq-accueil-prot.png"></a><br/>
+        <p><small> #DESCRIPTIF</small></p>
+        <p>
+          <BOUCLE_artpoleprot(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
+            <a class="a-prot" href="#URL_ARTICLE"[ title="(#TITRE|supprimer_numero)"]>[(#TITRE|supprimer_numero|couper{50})]</a> [<small>(#DATE|affdate)</small>]<br />
+          </BOUCLE_artpoleprot>
+        </p>
+        <p class="link-plus">
+	  <a class="a-prot" href="#URL_RUBRIQUE">Entrer dans le pôle</a>
+        </p>
+        [<span class="rot-title pole-prot">&nbsp;&nbsp;(#TITRE|supprimer_numero)</span>]
+</BOUCLE_rubprot>
+      </div>
+    </div>
+    <div id="d3" class="sliding">
+      <div class="content">
+<BOUCLE_rubenv(RUBRIQUES){id_rubrique=24}>
+        [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-env" src="pix/env/plaq-accueil-env.png"></a><br/>
+        <p><small>#DESCRIPTIF</small></p>
+        <p>
+          <BOUCLE_artpoleenv(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
+            <a class="a-env" href="#URL_ARTICLE"[ title="(#TITRE|supprimer_numero)"]>[(#TITRE|supprimer_numero|couper{50})]</a> [<small>(#DATE|affdate)</small>]<br />
+          </BOUCLE_artpoleenv>
+        </p>
+        <p class="link-plus">
+	  <a class="a-env" href="#URL_RUBRIQUE">Entrer dans le pôle</a>
+        </p>
+        [<span class="rot-title pole-env">&nbsp;&nbsp;(#TITRE|supprimer_numero)</span>]
+</BOUCLE_rubenv>
+      </div>
+    </div>
+  </div><!-- contd2 -->
+  </div><!-- contd1 -->
+    <div id="d4" class="sliding">
+      <div class="content">
+<BOUCLE_rubanim(RUBRIQUES){id_rubrique=4}>
+        [<h1 class="accueil-title">(#TITRE|supprimer_numero)</h1>]
+        <a href="#URL_RUBRIQUE" [title="(#TITRE|supprimer_numero)"]><img class="accueil-img acc-pole-anim" src="pix/anim/plaq-accueil-anim.png"></a><br/>
+        <p><small>#DESCRIPTIF</small></p>
+        <p>
+          <BOUCLE_artpoleanim(ARTICLES){branche}{!titre_mot=focus}{!titre_mot=pas_actus}{par date}{inverse}{0,2}>
+            <a class="a-anim" href="#URL_ARTICLE"[ title="(#TITRE|supprimer_numero)"]>[(#TITRE|supprimer_numero|couper{50})]</a> [<small>(#DATE|affdate)</small>]<br />
+          </BOUCLE_artpoleanim>
+        </p>
+        <p class="link-plus">
+	  <a class="a-anim" href="#URL_RUBRIQUE">Entrer dans le pôle</a>
+        </p>
+        [<span class="rot-title pole-anim">&nbsp;&nbsp;(#TITRE|supprimer_numero)</span>]
+</BOUCLE_rubanim>
+      </div>
+    </div>
+</div>
+    
+    </div><!-- bloc-plaques -->
+
+<INCLURE{fond=pied_page}>

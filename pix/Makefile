@@ -1,4 +1,4 @@
-picnat.css: picnat.less style.less article.less recherche.less site.less rubrique.less accueil.less
-	lessc picnat.less > picnat.css
+picnat.css: 	
+	lessc less/picnat.less > picnat.css
 clean:
 	rm -f picnat.css
