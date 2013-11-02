@@ -1,23 +1,18 @@
 <INCLURE{fond=head}>
 <INCLURE{fond=top}>
 <div class="row">
+	<div class="sommaire-liens-rub">
+		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
+			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)]" href="#r#ID_RUBRIQUE">#TITRE</a>
+		</BOUCLE_rubf>
+		<div style="clearfix"></div>
+	</div>
+</div>
+<div class="row">
 	<div class="col-md-9">
-		<BOUCLE_ruba(RUBRIQUES){id_rubrique=1}>
+		<BOUCLE_ruba(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
 			<INCLURE{fond=sommaire_pole,id_rubrique}>
 		</BOUCLE_ruba>
-		<BOUCLE_rubb(RUBRIQUES){id_rubrique=14}>
-			<INCLURE{fond=sommaire_pole,id_rubrique}>
-		</BOUCLE_rubb>
-		<BOUCLE_rubc(RUBRIQUES){id_rubrique=4}>
-			<INCLURE{fond=sommaire_pole,id_rubrique}>
-		</BOUCLE_rubc>
-		<BOUCLE_rubd(RUBRIQUES){id_rubrique=24}>
-			<INCLURE{fond=sommaire_pole,id_rubrique}>
-		</BOUCLE_rubd>
-		<BOUCLE_rube(RUBRIQUES){id_rubrique=100}>
-			<INCLURE{fond=sommaire_pole,id_rubrique}>
-		</BOUCLE_rube>
-
 	</div>
 	<div class="col-md-3 fil">
 		<h3>Les plus lus</h3>

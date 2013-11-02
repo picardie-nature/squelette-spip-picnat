@@ -1,7 +1,16 @@
 <INCLURE{fond=head}>
 <INCLURE{fond=top}>
+<BOUCLE_article(ARTICLES){id_article}>
 <div class="row">
-	<BOUCLE_article(ARTICLES){id_article}>
+	<div class="sommaire-liens-rub">
+		#SET{secteur_actuel,#ID_SECTEUR}
+		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
+			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)] [(#ID_SECTEUR|=={#GET{secteur_actuel}}|oui) [sommaire-hover sommaire-hover-(#ID_SECTEUR|class_secteur)]]" href="#URL_RUBRIQUE">#TITRE </a>
+		</BOUCLE_rubf>
+		<div style="clearfix"></div>
+	</div>
+</div>
+<div class="row">
 	<div class="col-md-3">
 		<h4>Rubriques</h4>
 		#SET{id_r_active, #ID_RUBRIQUE}
@@ -17,7 +26,6 @@
 		<div class="meta">Publi&eacute; le [(#DATE|affdate)][ par (#LESAUTEURS)]</div>
 		<div>#TEXTE</div>
 	</div>
-  	</BOUCLE_article>
 	<div class="col-md-3 fil">
 		<h4>Les plus lus</h4>
 		<ul>
@@ -35,7 +43,7 @@
 			</li>
 		</BOUCLE_rec>
 		</ul>
-
 	</div>
 </div>
+</BOUCLE_article>
 <INCLURE{fond=foot}>
