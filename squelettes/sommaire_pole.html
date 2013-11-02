@@ -1,11 +1,5 @@
-<!--
-<option value="1" >Découverte et animations nature</option>
-<option value="2" selected=1>Observatoire faune sauvage</option>
-<option value="4" >Protection environnement</option>
-<option value="3" >Protection faune sauvage</option>
--->
 <BOUCLE_r(RUBRIQUES){id_rubrique}>
-<div class="intro-root ">
+<div class="intro-root" id="r#ID_RUBRIQUE">
 	<div class="coul-[(#ID_SECTEUR|class_secteur)]"><h1>#TITRE</h1></div>
 	<div class="intro-titre bord-[(#ID_SECTEUR|class_secteur)] fond-[(#ID_SECTEUR|class_secteur)]">
 		<img class="pull-right visible-sm visible-md visible-lg" src="pix/pole-[(#ID_SECTEUR|class_secteur)].png" style="width:200px;">
@@ -25,9 +19,9 @@
 			<BOUCLE_a(ARTICLES){id_secteur=#ID_RUBRIQUE}{par date}{inverse}{0,9}>
 				<div><a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a></div>
 			</BOUCLE_a>
+			#SET{pole, #ID_SECTEUR|sortie_pole}
 			<B_cal_s>
 			<h4>Agenda</h4>
-			#SET{pole, #ID_SECTEUR|sortie_pole}
 			<BOUCLE_cal_s(sortie_dates_v){date_sortie>#ENV{date}}{pole=#GET{pole}}{etat=3}{par date_sortie}{0,5}>
 				<div>&gt; #NOM_SORTIE 
 				<i>[(#DATE_SORTIE|nom_jour)] [(#DATE_SORTIE|affdate)]</i>

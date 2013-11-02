@@ -14,15 +14,23 @@
 				<input type="text" name="recherche" id="recherche" value="Rechercher" autofocus size="15"/>
 				<button type="submit" id="rechok">OK</button>
 			</form>
-			<div class="btn-group" >
-				<a class="btn btn-default" href="https://www.facebook.com/pages/Picardie-Nature/182270958508894"><i class="icon-facebook"></i></a>
-				<a class="btn btn-default" href="https://plus.google.com/117129209946873603610/posts"><i class="icon-google-plus"></i></a>
-				<a class="btn btn-default" href="http://www.twitter.com/"><i class="icon-twitter"></i></a>
-				<a class="btn btn-default" href="spip.php?page=backend"><i class="icon-rss"></i></a>
+			<div class="icones-sociaux pull-right">
+				<a href="https://www.facebook.com/pages/Picardie-Nature/182270958508894"><i class="icon-facebook"></i></a>
+				<a href="https://plus.google.com/117129209946873603610/posts"><i class="icon-google-plus"></i></a>
+				<a href="http://www.twitter.com/PicardieNature"><i class="icon-twitter"></i></a>
+				<a href="spip.php?page=backend"><i class="icon-rss"></i></a>
 			</div>
 		</div>
 	</div> 
 </div>
 <div class="row visible-xs">
 	Entête mobile
+</div>
+<div class="row">
+	<div class="sommaire-liens-rub">
+		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
+			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)]" href="#r#ID_RUBRIQUE">#TITRE</a>
+		</BOUCLE_rubf>
+		<div style="clearfix"></div>
+	</div>
 </div>

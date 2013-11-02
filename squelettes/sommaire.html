@@ -20,14 +20,23 @@
 
 	</div>
 	<div class="col-md-3 fil">
-		<h3>Le fil d'actu</h3>
+		<h3>Les plus lus</h3>
 		<ul>
-		<BOUCLE_top(ARTICLES){titre_mot=page_sommaire}{par popularite}{inverse}>
+		<BOUCLE_pop(ARTICLES){titre_mot=page_sommaire}{par popularite}{inverse}{0,10}>
 			<li class="[(#ID_SECTEUR|class_secteur)]">
 				<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
 			</li>
-		</BOUCLE_top>
+		</BOUCLE_pop>
 		</ul>
+		<h3>Les plus récents</h3>
+		<ul>
+		<BOUCLE_rec(ARTICLES){titre_mot=page_sommaire}{par date}{inverse}{0,10}>
+			<li class="[(#ID_SECTEUR|class_secteur)]">
+				<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
+			</li>
+		</BOUCLE_rec>
+		</ul>
+
 	</div>
 </div>
 <INCLURE{fond=foot}>
