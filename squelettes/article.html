@@ -1,0 +1,41 @@
+<INCLURE{fond=head}>
+<INCLURE{fond=top}>
+<div class="row">
+	<BOUCLE_article(ARTICLES){id_article}>
+	<div class="col-md-3">
+		<h4>Rubriques</h4>
+		#SET{id_r_active, #ID_RUBRIQUE}
+		<ul class="menu">
+		<BOUCLE_rr(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+			<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
+		</BOUCLE_rr>
+		</ul>
+	</div>
+	<div class="col-md-6 article">
+		<h1>#TITRE</h1>
+		[<h2>(#SOUS_TITRE)</h2>]
+		<div class="meta">Publi&eacute; le [(#DATE|affdate)][ par (#LESAUTEURS)]</div>
+		<div>#TEXTE</div>
+	</div>
+  	</BOUCLE_article>
+	<div class="col-md-3 fil">
+		<h4>Les plus lus</h4>
+		<ul>
+		<BOUCLE_pop(ARTICLES){titre_mot=page_sommaire}{par popularite}{inverse}{0,10}>
+			<li class="[(#ID_SECTEUR|class_secteur)]">
+				<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
+			</li>
+		</BOUCLE_pop>
+		</ul>
+		<h4>Les plus récents</h4>
+		<ul>
+		<BOUCLE_rec(ARTICLES){titre_mot=page_sommaire}{par date}{inverse}{0,10}>
+			<li class="[(#ID_SECTEUR|class_secteur)]">
+				<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
+			</li>
+		</BOUCLE_rec>
+		</ul>
+
+	</div>
+</div>
+<INCLURE{fond=foot}>
