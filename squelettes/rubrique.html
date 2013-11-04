@@ -1,0 +1,61 @@
+<INCLURE{fond=head}>
+<INCLURE{fond=top}>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<div class="row">
+	<div class="sommaire-liens-rub">
+		#SET{secteur_actuel,#ID_SECTEUR}
+		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
+			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)] [(#ID_SECTEUR|=={#GET{secteur_actuel}}|oui) [sommaire-hover sommaire-hover-(#ID_SECTEUR|class_secteur)]]" href="#URL_RUBRIQUE">#TITRE </a>
+		</BOUCLE_rubf>
+		<div style="clearfix"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<h4>Rubriques</h4>
+		#SET{id_r_active, #ID_RUBRIQUE}
+		<ul class="menu">
+		<BOUCLE_rr(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+			<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
+		</BOUCLE_rr>
+		</ul>
+	</div>
+	<div class="col-md-6 article">
+		<h1>#TITRE</h1>
+		[<h2>(#SOUS_TITRE)</h2>]
+		<div>#DESCRIPTIF</div>
+		<div class="row">
+			<BOUCLE_rubrubx(RUBRIQUES){id_parent}{par titre}>
+				<div class="col-md-6">
+					<div class="well">
+						<a href="#URL_RUBRIQUE">#TITRE</a>
+						<p>#DESCRIPTIF</p>
+					</div>
+				</div>
+			</BOUCLE_rubrubx>
+		</div>
+		<BOUCLE_rubartx(ARTICLES){id_rubrique}{par date}{inverse}>
+			<div><a href="#URL_ARTICLE">#TITRE</a></div>
+		</BOUCLE_rubartx>
+	</div>
+	<div class="col-md-3 fil">
+		<h4>Les plus lus</h4>
+		<ul>
+		<BOUCLE_pop(ARTICLES){titre_mot=page_sommaire}{par popularite}{inverse}{0,10}>
+			<li class="[(#ID_SECTEUR|class_secteur)]">
+				<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
+			</li>
+		</BOUCLE_pop>
+		</ul>
+		<h4>Les plus récents</h4>
+		<ul>
+		<BOUCLE_rec(ARTICLES){titre_mot=page_sommaire}{par date}{inverse}{0,10}>
+			<li class="[(#ID_SECTEUR|class_secteur)]">
+				<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
+			</li>
+		</BOUCLE_rec>
+		</ul>
+	</div>
+</div>
+</BOUCLE_rubrique>
+<INCLURE{fond=foot}>
