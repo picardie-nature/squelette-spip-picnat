@@ -1,0 +1,13 @@
+<BOUCLE_r(RUBRIQUES){id_rubrique}>
+<h4 class="visible-xs titre-rubrique fond-[(#ID_SECTEUR|class_secteur)]">
+	<a href="" class="pull-right btn btn-default"><i class="icon-expand"></i></a>
+	#TITRE
+	<div class="clearfix"></div>
+</h4>
+#SET{id_r_active, #ID_RUBRIQUE}
+<ul class="hidden-xs menu">
+	<BOUCLE_rr(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+		<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
+	</BOUCLE_rr>
+</ul>
+</BOUCLE_r>

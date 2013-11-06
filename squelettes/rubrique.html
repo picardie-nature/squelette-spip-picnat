@@ -5,34 +5,39 @@
 	<div class="sommaire-liens-rub">
 		#SET{secteur_actuel,#ID_SECTEUR}
 		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
-			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)] [(#ID_SECTEUR|=={#GET{secteur_actuel}}|oui) [sommaire-hover sommaire-hover-(#ID_SECTEUR|class_secteur)]]" href="#URL_RUBRIQUE">#TITRE </a>
+			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)] [(#ID_SECTEUR|=={#GET{secteur_actuel}}|oui) [sommaire-hover sommaire-hover-(#ID_SECTEUR|class_secteur)]]" href="#URL_RUBRIQUE">#TITRE</a>
 		</BOUCLE_rubf>
 		<div style="clearfix"></div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-3">
-		<h4>Rubriques</h4>
-		#SET{id_r_active, #ID_RUBRIQUE}
-		<ul class="menu">
-		<BOUCLE_rr(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
-			<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
-		</BOUCLE_rr>
-		</ul>
+		<INCLURE{fond=nav}{id_rubrique}>
 	</div>
 	<div class="col-md-6 article">
 		<h1>#TITRE</h1>
 		[<h2>(#SOUS_TITRE)</h2>]
 		<div>#DESCRIPTIF</div>
 		<div class="row">
-			<BOUCLE_rubrubx(RUBRIQUES){id_parent}{par titre}>
-				<div class="col-md-6">
-					<div class="well">
-						<a href="#URL_RUBRIQUE">#TITRE</a>
-						<p>#DESCRIPTIF</p>
-					</div>
-				</div>
-			</BOUCLE_rubrubx>
+			<div class="col-md-6">
+			<BOUCLE_rubrubx_pair(RUBRIQUES){id_parent}{par titre}>
+				[(#COMPTEUR_BOUCLE|modulo{2}|=={0}|oui)
+				<div class="well">
+					<a href="#URL_RUBRIQUE">#TITRE</a>
+					<p>#DESCRIPTIF</p>
+				</div>]
+			</BOUCLE_rubrubx_pair>
+			</div>
+			<div class="col-md-6">
+			<BOUCLE_rubrubx_impair(RUBRIQUES){id_parent}{par titre}>
+				[(#COMPTEUR_BOUCLE|modulo{2}|=={1}|oui)
+				<div class="well">
+					<a href="#URL_RUBRIQUE">#TITRE</a>
+					<p>#DESCRIPTIF</p>
+				</div>]
+			</BOUCLE_rubrubx_impair>
+			</div>
+
 		</div>
 		<BOUCLE_rubartx(ARTICLES){id_rubrique}{par date}{inverse}>
 			<div><a href="#URL_ARTICLE">#TITRE</a></div>

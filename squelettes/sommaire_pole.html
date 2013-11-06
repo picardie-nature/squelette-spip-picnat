@@ -6,13 +6,11 @@
 		<p>#DESCRIPTIF</p>
 		<div class="clearfix"></div>
 	</div>
-	<div class="row intro-cont bord-[(#ID_SECTEUR|class_secteur)] coul-[(#ID_SECTEUR|class_secteur)]">
-		<div class="col-sm-6 col-md-5">
-			<ul class="list-group">
+	<div class="row intro-cont bord-[(#ID_SECTEUR|class_secteur)] fond-blanc">
+		<div class="col-sm-6 col-md-5" style="padding-left:0px;">
 			<BOUCLE_sr(RUBRIQUES){id_parent=#ID_RUBRIQUE}>
-				<li class="list-group-item"><a href="#URL_RUBRIQUE">#TITRE</a></li>
+				<a class="sommaire-titre-rubrique bord-[(#ID_SECTEUR|class_secteur)] coul-[(#ID_SECTEUR|class_secteur)] sommaire-titre-rubrique-[(#ID_SECTEUR|class_secteur)]" href="#URL_RUBRIQUE">#TITRE</a>
 			</BOUCLE_sr>
-			</ul>
 		</div>
 		<div class="col-sm-6 col-md-5">
 			<h4>Quoi de neuf</h4>
@@ -28,7 +26,7 @@
 				</div>
 			</BOUCLE_cal_s>
 		</div>
-		<div class="col-sm-12 col-md-2">
+		<div class="col-sm-12 col-md-2 fond-blanc">
 			<h4>Mots clés</h4>
 			<div class="into-bottom">
 				<BOUCLE_m(MOTS){id_groupe=6}>

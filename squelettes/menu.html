@@ -1,5 +1,9 @@
 <BOUCLE_r(RUBRIQUES){id_parent=#ID_RUBRIQUE}>
-	<li><a [class="(#ID_RUBRIQUE|=={#ID_R_ACTIVE}|oui) fond-[(#ID_SECTEUR|class_secteur)]" style="color:white;"] href="#URL_RUBRIQUE">#TITRE </a></li>
+	<li>
+		<a class="[(#ID_RUBRIQUE|=={#ID_R_ACTIVE}|oui) fond-[(#ID_SECTEUR|class_secteur)]] "
+			[(#ID_RUBRIQUE|=={#ID_R_ACTIVE}|oui)style="color:white;"]
+			href="#URL_RUBRIQUE">#TITRE </a>
+	</li>
 	<ul>
 		<INCLURE{fond=menu}{id_rubrique}{id_r_active}>
 	</ul>

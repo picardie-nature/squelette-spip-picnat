@@ -40,6 +40,7 @@ ul.menu, .menu ul {
 .sommaire-liens-rub {
 	height: 60px;
 }
+
 .sommaire-liens-rub > a {
 	display:block;
 	width:20%;
@@ -47,8 +48,8 @@ ul.menu, .menu ul {
 	padding: 5px;
 	text-align:center;
 	color: @coul_texte_3;
-	border-bottom-size: 4px;
-	border-bottom-style: solid;
+	/*border-bottom-width: 4px;
+	border-bottom-style: solid;*/
 	font-variant:small-caps;
 	font-weight: bold;
 }
@@ -116,9 +117,9 @@ ul.menu, .menu ul {
 .fond-clair-obs { background-color: softlight(@coul_observatoire, #fff); }
 .fond-clair-anim { background-color: softlight(@coul_decouverte, #fff); }
 .fond-clair-asso { background-color: softlight(@coul_association, #fff); }
+.fond-blanc { background-color: white; }
 
 .intro-cont {
-	background-color: white;
 	font-size: 12px;
 	margin:0px;
 	border-style:solid;
@@ -132,6 +133,26 @@ ul.menu, .menu ul {
 .bord-anim { border-color: @coul_decouverte; }
 .bord-asso { border-color: @coul_association; }
 
+a.sommaire-titre-rubrique {
+	font-size: 16px;
+	border-width: 3px;
+	border-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	padding: 3px;
+	display:block;
+}
+
+a.sommaire-titre-rubrique-env:hover  { text-decoration: none; color:white; background-color: @coul_protection_env; }
+a.sommaire-titre-rubrique-prot:hover  { text-decoration: none; color:white; background-color: @coul_protection_fs; }
+a.sommaire-titre-rubrique-obs:hover  { text-decoration: none; color:white; background-color: @coul_observatoire; }
+a.sommaire-titre-rubrique-anim:hover  { text-decoration: none; color:white; background-color: @coul_decouverte; }
+a.sommaire-titre-rubrique-asso:hover  { text-decoration: none; color:white; background-color: @coul_association; }
+
+.titre-rubrique {
+	padding: 3px;
+	color: white;
+}
 
 .intro-bottom {
 	padding: 4px;
