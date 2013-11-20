@@ -2,11 +2,35 @@
 <INCLURE{fond=top}>
 <div class="row">
 	<div class="sommaire-liens-rub">
-		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
+		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 100,1,14,4,24}>
 			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)]" href="#r#ID_RUBRIQUE">#TITRE</a>
 		</BOUCLE_rubf>
-		<div style="clearfix"></div>
 	</div>
+	<div style="clear:both;"></div>
+</div>
+<div class="row">
+	<div class="col-sm-12" style="padding:0px;">
+		<div id="carousel0" class="carousel slide hidden-xs" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel0" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel0" data-slide-to="1"></li>
+			</ol>
+			 <div class="carousel-inner">
+				<div class="item active">
+					<a href="spip.php?rubrique168"><img src="pix/heroes/schiste.jpg" alt="..."></a>
+				</div>
+				<div class="item">
+					<img src="pix/heroes/surveillance.jpg" alt="...">
+					<div class="carousel-caption">
+						<h3>Surveillance et protection des phoques de la Baie de Somme</h3>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<a class="left carousel-control hidden-xs" href="#carousel0" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+		<a class="right carousel-control hidden-xs" href="#carousel0" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+	</div>
+	<script>$('#carousel0').carousel();</script>
 </div>
 <div class="row">
 	<div class="col-md-9">
