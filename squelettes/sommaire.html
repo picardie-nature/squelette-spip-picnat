@@ -33,6 +33,31 @@
 	<script>$('#carousel0').carousel();</script>
 </div>
 <div class="row">
+	<BOUCLE_psa(ARTICLES){titre_mot="page_sommaire"}{par date}{inverse}{0,8}>
+		<div class="col-sm-4 col-md-3 hidden-xs">
+			<div class="thumbnail">
+				<div class="page-sommaire-thumbnail">
+					<div class="page-sommaire-content">
+						<div class="img-page-sommaire">
+							[(#DESCRIPTIF|image_reduire{300}|extraire_balise{img})]
+						</div>
+						<h4>#TITRE</h4>
+						<div class="page-sommaire-txt">
+							[(#DESCRIPTIF|textebrut)]
+						</div>
+					</div>
+					<div class="page-sommaire-degrade">
+						<a href="#URL_ARTICLE"><a>
+					</div>
+				</div>
+				<div class="page-sommaire-pied">
+					<a class="btn btn-primary btn-xs" href="#URL_ARTICLE">Lire l'article</a>
+				</div>
+			</div>
+		</div>
+	</BOUCLE_psa>
+</div>
+<div class="row">
 	<div class="col-md-9">
 		<BOUCLE_ruba(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
 			<INCLURE{fond=sommaire_pole,id_rubrique}>

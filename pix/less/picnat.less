@@ -37,14 +37,16 @@ ul.menu, .menu ul {
 	margin-left:12px;
 }
 
+@hauteur_lien_sommaire: 60px;
+
 .sommaire-liens-rub {
-	height: 60px;
+	height: @hauteur_lien_sommaire;
 }
 
 .sommaire-liens-rub > a {
 	display:block;
 	width:20%;
-	height: 60px;
+	height: @hauteur_lien_sommaire;
 	padding: 5px;
 	text-align:center;
 	color: @coul_texte_3;
@@ -53,6 +55,13 @@ ul.menu, .menu ul {
 	font-variant:small-caps;
 	font-weight: bold;
 }
+
+@media (max-width: @screen-sm) {
+	.sommaire-liens-rub > a {
+		width:30%;
+	}
+}
+
 .sommaire-liens-rub > a:hover, .sommaire-hover {
 	color: white !important;
 	text-decoration: none !important;
@@ -212,4 +221,43 @@ img.100pct {
 	.into-bottom > div {
 		display: block;
 	}
+}
+
+@page_sommaire_pied_offset: 40px;
+@page_sommaire_hauteur : 400px;
+div.img-page-sommaire > img {
+	width: inherit; /* IE8 */
+	max-width:100%;
+	height: auto;
+}
+div.page-sommaire-thumbnail {
+	height: @page_sommaire_hauteur;
+	overflow: hidden;
+	z-index: 4;
+	background-color: transparent !important;
+}
+div.page-sommaire-txt {
+	font-size: 12px;
+}
+
+div.page-sommaire-content {
+	height: @page_sommaire_hauteur;
+	width: 100%;
+}
+
+div.page-sommaire-degrade {
+	position:relative;
+	top: -@page_sommaire_hauteur;
+	height: @page_sommaire_hauteur;
+	background-image: url('page-sommaire-degrade.png');
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+div.page-sommaire-degrade >  a {
+	display:block;
+	height: 100%;
+}
+div.page-sommaire-pied {
+	text-align:right;
 }
