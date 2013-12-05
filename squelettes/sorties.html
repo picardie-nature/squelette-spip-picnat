@@ -6,10 +6,9 @@
 <INCLURE{fond=page-menu}{deco=#EVAL{deco()}}{id_rubrique}>
 <INCLURE{fond=page-actus}{deco=#EVAL{deco()}}{id_rubrique}>
 
-
  <div id="art-contenu">
  <h1>Calendrier des activités nature et environnement</h1>
-<BOUCLE_cal_all(sortie_dates_resum_v){date_sortie >= #ENV{date}}>	
+<BOUCLE_cal_all(sortie_dates_resum_v){date_sortie >= #HIER}>
 	<div style="background-color: white;">
 		<h1 style="color:white;" class="calendrier_pole calendrier_pole#POLE">
 			<div style="float:right;"><small>#LIBELLE</small></div>

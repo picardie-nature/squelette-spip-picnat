@@ -18,4 +18,10 @@ function zero2d($d)
 		return sprintf("%02d", $d);
 	return "";
 }
+
+function balise_HIER($params) {
+	$params->code = "date('Y-m-d', time()-24*3600)";
+	$params->type = 'php';  
+	return $params;
+}
 ?>
