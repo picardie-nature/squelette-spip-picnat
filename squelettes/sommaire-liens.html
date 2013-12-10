@@ -1,0 +1,33 @@
+</div>
+
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<div style="min-height:80px;">
+	<div data-spy="affix" data-offset-top="163">
+		<div class="container">
+			<div class="row">
+				<div class="sommaire-liens-rub" >
+					#SET{secteur_actuel,#ID_SECTEUR}
+					<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 100,1,14,4,24}>
+						<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)] [(#ID_SECTEUR|=={#GET{secteur_actuel}}|oui) [sommaire-hover sommaire-hover-(#ID_SECTEUR|class_secteur)]]" href="#URL_SITE_SPIP/#r#ID_SECTEUR">#TITRE</a>
+					</BOUCLE_rubf>
+					<div style="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</BOUCLE_rubrique>
+<div class="container">
+<div class="row hidden-xs">
+	<div class="col-md-12">
+	<BOUCLE_rubrique2(RUBRIQUES){id_rubrique}>
+		<BOUCLE_rubrique_s(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+			<div class="coul-[(#ID_SECTEUR|class_secteur)]">
+				<img class="pull-right" style="width:200px;" src="pix/pole-[(#ID_SECTEUR|class_secteur)].png">
+				<h2>#TITRE</h2>
+				#DESCRIPTIF
+			</div>		
+		</BOUCLE_rubrique_s>
+	</BOUCLE_rubrique2>
+	</div>
+</div>
