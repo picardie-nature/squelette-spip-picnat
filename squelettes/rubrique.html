@@ -1,15 +1,7 @@
 <INCLURE{fond=head}>
 <INCLURE{fond=top}>
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
-<div class="row">
-	<div class="sommaire-liens-rub">
-		#SET{secteur_actuel,#ID_SECTEUR}
-		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
-			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)] [(#ID_SECTEUR|=={#GET{secteur_actuel}}|oui) [sommaire-hover sommaire-hover-(#ID_SECTEUR|class_secteur)]]" href="#URL_RUBRIQUE">#TITRE</a>
-		</BOUCLE_rubf>
-		<div style="clearfix"></div>
-	</div>
-</div>
+<INCLURE{fond=sommaire-liens}{id_rubrique}>
 <div class="row">
 	<div class="col-md-3">
 		<INCLURE{fond=nav}{id_rubrique}>
