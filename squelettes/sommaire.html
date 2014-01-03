@@ -30,7 +30,6 @@
 		<a class="left carousel-control hidden-xs" href="#carousel0" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
 		<a class="right carousel-control hidden-xs" href="#carousel0" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
 	</div>
-	<script>$('#carousel0').carousel();</script>
 </div>
 <div class="row">
 	<BOUCLE_psa(ARTICLES){titre_mot="page_sommaire"}{par date}{inverse}{0,8}>
@@ -67,4 +66,23 @@
 		<INCLURE{fond=les_plus}>
 	</div>
 </div>
+<script>
+$(document).ready(
+	function () {
+		// page qui scroll pas sur la balise dans l'URL
+		// semble être un bug dans bs3, on le fait à la main
+		try {
+			if (navigator.appCodeName == 'Mozilla') {
+				if (document.location.hash) {
+					var pos = $(document.location.hash).offset();
+					$(document).scrollTop(pos['top']);
+				}
+			}
+		} catch (e) {
+			// tampis 
+		}
+		$('#carousel0').carousel();
+	}
+);
+</script>
 <INCLURE{fond=foot}>
