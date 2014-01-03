@@ -224,7 +224,8 @@ img.100pct {
 }
 
 @page_sommaire_pied_offset: 40px;
-@page_sommaire_hauteur : 400px;
+@page_sommaire_hauteur : 320px;
+
 div.img-page-sommaire > img {
 	width: inherit; /* IE8 */
 	max-width:100%;
@@ -254,10 +255,16 @@ div.page-sommaire-degrade {
 	background-repeat: repeat-x;
 }
 
-div.page-sommaire-degrade >  a {
+div.page-sommaire-degrade > a {
 	display:block;
 	height: 100%;
 }
+
+div.page-sommaire-thumbnail:hover div.page-sommaire-content {
+	position:relative;
+	top: -100px;
+}
+
 div.page-sommaire-pied {
 	text-align:right;
 }
