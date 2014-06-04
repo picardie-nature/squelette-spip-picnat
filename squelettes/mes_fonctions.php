@@ -24,4 +24,9 @@ function zero2d($d)
 		return sprintf("%02d", $d);
 	return "";
 }
+
+function archives_classeur($id_classeur) {
+	$id = (int)$id_classeur;
+	return file_get_contents("http://archives.picardie-nature.org/?action=classeur&id=$id&spip=1");
+}
 ?>
