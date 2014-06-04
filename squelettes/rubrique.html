@@ -11,6 +11,9 @@
 		[<h2>(#SOUS_TITRE)</h2>]
 		<div>#DESCRIPTIF</div>
 		<div>#TEXTE</div>
+		<BOUCLE_slr(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=sans_liste_rubrique}>
+		</BOUCLE_slr>
+		</B_slr>
 		<div class="row">
 			<div class="col-md-6">
 			<BOUCLE_rubrubx_impair(RUBRIQUES){id_parent}{par titre}>
@@ -31,6 +34,7 @@
 			</BOUCLE_rubrubx_pair>
 			</div>
 		</div>
+		<//B_slr>
 		<BOUCLE_rubartx(ARTICLES){id_rubrique}{par date}{inverse}>
 			<div><a href="#URL_ARTICLE">#TITRE</a></div>
 		</BOUCLE_rubartx>

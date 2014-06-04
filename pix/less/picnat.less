@@ -18,6 +18,9 @@
 /* haut de page */
 @top_hauteur: 163px;
 
+/* pied de page */
+@coul_pied_page: #999;
+
 @import "article.less";
 
 #top-left {
@@ -278,8 +281,22 @@ div.page-sommaire-pied {
 	position:fixed;
 }
 
-
 .ombre {
 	box-shadow: 4px 4px 4px #000000;
 	margin: 5px;
+}
+
+#bloc_pied {
+	margin-top: 10px;
+	padding-top: 10px;
+	clear:both;
+
+}
+.pied {
+	background-color: @coul_pied_page;
+	color: #eee;
+	padding:4px;
+}
+.pied a{
+	color: #fff;	
 }
