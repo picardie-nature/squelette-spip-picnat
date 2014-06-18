@@ -19,7 +19,7 @@
 	</div>
 	<table>
 		<tr>
-		<BOUCLE_sousrub2(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_parent=209}{par num titre}{tout}>
+		<BOUCLE_sousrub2(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_parent=268}{par num titre}{tout}>
 			<td valign="top">
 				<div style="background-color: #aeaeae;" align="center">
 					<a href="#URL_RUBRIQUE" alt="Dernières nouvelles">
@@ -45,7 +45,7 @@ if ( ($compteur_boucle % 6) == 0) {
 
 
 	<!-- partie journal de bord -->
-	<BOUCLE_rub1(RUBRIQUES){id_rubrique}{id_parent=209}>
+	<BOUCLE_rub1(RUBRIQUES){id_rubrique}{id_parent=268}>
 		<h1>Journal de bord de [(#TITRE|supprimer_numero)]</h1>
 		<table>
 		<tr>
@@ -67,7 +67,7 @@ if ( ($compteur_boucle % 6) == 0) {
 	<div align="center">
 	<table>
 	<tr>
-		<BOUCLE_autre_ph(RUBRIQUES){id_parent=209}{!id_rubrique=#ID_RUBRIQUE}>
+		<BOUCLE_autre_ph(RUBRIQUES){id_parent=268}{!id_rubrique=#ID_RUBRIQUE}>
 		<td valign="top">
 			<div style="background-color: #aeaeae;" align="center">
 				<a href="#URL_RUBRIQUE" alt="Dernières nouvelles de [(#TITRE|supprimer_numero)]">
