@@ -1,0 +1,99 @@
+<BOUCLE_rub_globale(RUBRIQUES){id_rubrique}{tout}>
+<INCLURE{fond=entete_page}{id_rubrique}{deco=#EVAL{deco()}}>
+
+    <div id="bloc-rubrique">
+
+      <INCLURE{fond=page-menu}{deco=#EVAL{deco()}}{id_rubrique}>
+      <INCLURE{fond=page-actus}{deco=#EVAL{deco()}}{id_rubrique}>
+
+      <div id="rub-contenu">
+
+        <INCLURE{fond=bread_rub}{id_rubrique}>
+      
+        <a name="contenu"></a>
+	<B_sousrub2>
+	<h1>[(#TITRE|supprimer_numero)]</h1>
+	<div class="rub-cont clearfix">
+		<div class="rub-logo">[(#LOGO_RUBRIQUE||image_reduire{300})]</div>
+		#TEXTE
+	</div>
+	<table>
+		<tr>
+		<BOUCLE_sousrub2(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_parent=268}{par num titre}{tout}>
+			<td valign="top">
+				<div style="background-color: #aeaeae;" align="center">
+					<a href="#URL_RUBRIQUE" alt="Dernières nouvelles">
+						<h2>[(#TITRE|supprimer_numero)]</h2>
+						<div>[(#LOGO_RUBRIQUE||image_reduire{300})]</div>
+						<img src="IMG/png/dernieres_nouvelles.png">
+					</a>
+
+				</div>
+			</td>
+<?php
+$compteur_boucle = '[(#COMPTEUR_BOUCLE|texte_script)]';
+if ( ($compteur_boucle % 6) == 0) {
+ ?>
+	</tr>
+	<tr>
+<?php
+}
+?>
+		</BOUCLE_sousrub2>
+		</tr>
+	</table>
+
+
+	<!-- partie journal de bord -->
+	<BOUCLE_rub1(RUBRIQUES){id_rubrique}{id_parent=268}>
+		<h1>Journal de bord de [(#TITRE|supprimer_numero)]</h1>
+		<table>
+		<tr>
+			<td valign="top" width="30%">
+				[(#LOGO_RUBRIQUE||image_reduire{300})]
+				<small>#TEXTE</small>
+			</td>
+			<td valign="top" width="70%">
+				<div style="width:100%; height: 800px; overflow:scroll;background-color:white; padding: 10px;">
+				<BOUCLE_ar_news(ARTICLES){id_rubrique}{par date}{inverse}>
+					<h2>#TITRE</h2>
+					[(#TEXTE|image_reduire{350})]
+				</BOUCLE_ar_news>
+				</div>
+			</td>
+		</tr>
+		</table>
+	<h1>Les autres phoques au centre de sauvegarde</h1>
+	<div align="center">
+	<table>
+	<tr>
+		<BOUCLE_autre_ph(RUBRIQUES){id_parent=268}{!id_rubrique=#ID_RUBRIQUE}>
+		<td valign="top">
+			<div style="background-color: #aeaeae;" align="center">
+				<a href="#URL_RUBRIQUE" alt="Dernières nouvelles de [(#TITRE|supprimer_numero)]">
+					<h2>[(#TITRE|supprimer_numero)]</h2>
+					[(#LOGO_RUBRIQUE||image_reduire{300})]<br/>
+					<img src="IMG/png/dernieres_nouvelles.png">
+				</a>
+
+			</div>
+		</td>
+<?php
+$compteur_boucle = '[(#COMPTEUR_BOUCLE|texte_script)]';
+if ( ($compteur_boucle % 6) == 0) {
+ ?>
+	</tr>
+	<tr>
+<?php
+}
+?>
+		</BOUCLE_autre_ph>
+	</tr>
+	</table>
+	<a href="spip.php?article301"><img src="IMG/png/parrainer_un_phoque.png" alt="Parrainer un phoque"></a>
+	</div>
+	</BOUCLE_rub1>
+     </div>
+    </div><!-- bloc-rubrique -->
+<INCLURE{fond=pied_page}{deco=#EVAL{deco()}}>
+</BOUCLE_rub_globale>
