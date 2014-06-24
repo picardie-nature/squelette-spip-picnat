@@ -1,0 +1,19 @@
+<INCLURE{fond=head}>
+<INCLURE{fond=top}>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<INCLURE{fond=sommaire-liens}{id_rubrique}>
+<div class="row">
+	<div class="col-md-3">
+		<INCLURE{fond=nav}{id_rubrique}>
+	</div>
+	<div class="col-md-6 article">
+		#SORTIES
+		
+		<!-- #SORTIES{pole=45} -->
+	</div>
+	<div class="col-md-3 fil">
+		<INCLURE{fond=les_plus}>
+	</div>
+</div>
+</BOUCLE_rubrique>
+<INCLURE{fond=foot}>
