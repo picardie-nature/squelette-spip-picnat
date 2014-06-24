@@ -1,12 +1,17 @@
 <INCLURE{fond=head}>
 <INCLURE{fond=top}>
-<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
 <INCLURE{fond=sommaire-liens}{id_rubrique}>
 <div class="row">
 	<div class="col-md-3">
 		<INCLURE{fond=nav}{id_rubrique}>
 	</div>
+	<BOUCLE_sans_b_lat0(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=rubrique_sans_bandeau_lateral}>
+	<div class="col-md-9 article">
+	</BOUCLE_sans_b_lat0>
+	</B_sans_b_lat0>
 	<div class="col-md-6 article">
+	<//B_sans_b_lat0>
 		<h1>#TITRE</h1>
 		[<h2>(#SOUS_TITRE)</h2>]
 		<div>#DESCRIPTIF</div>
@@ -40,7 +45,11 @@
 		</BOUCLE_rubartx>
 	</div>
 	<div class="col-md-3 fil">
+		<BOUCLE_sans_b_lat(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=rubrique_sans_bandeau_lateral}>
+		</BOUCLE_sans_b_lat>
+		</B_sans_b_lat>
 		<INCLURE{fond=les_plus}>
+		<//B_sans_b_lat>
 	</div>
 </div>
 </BOUCLE_rubrique>

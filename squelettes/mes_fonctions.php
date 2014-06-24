@@ -29,4 +29,16 @@ function archives_classeur($id_classeur) {
 	$id = (int)$id_classeur;
 	return file_get_contents("http://archives.picardie-nature.org/?action=classeur&id=$id&spip=1");
 }
+
+function balise_SORTIES($p) {
+	$n = 1;
+	$args = '';
+	while ($_arg = interprete_argument_balise($n, $p)) {
+		list($k,$v) = explode("=", trim($_arg,"'"));
+		$args .= '&'.urlencode($k).'='.urlencode($v);
+		$n++;
+	}
+	$p->code = "file_get_contents(\"http://localhost:8080/~nicolas/sorties/?t=www_liste$args\")";
+	return $p;
+}
 ?>

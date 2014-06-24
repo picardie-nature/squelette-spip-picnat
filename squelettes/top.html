@@ -1,20 +1,29 @@
 
 <div class="row hidden-xs" id="top">
-	<div class="col-sm-3" id="top-left">
+	<div class="col-sm-6 col-md-3 col-lg-3" id="top-left">
 		<img src="pix/logo_top.png">
 	</div>
-	<div class="col-sm-6 top-middle">
+	<div class="hidden-sm col-md-5 col-lg-6 top-middle">
 		<div id="top-picardie" class="visible-lg"></div>
 		<div id="top-panneau" class="visible-md visible-lg"></div>
 	</div>
-	<div class="col-sm-3 text-right" id="top-right">
-		<div style="position:absolute; bottom:0; left:0; width:100%;">
+	<div class="col-sm-6 col-md-4 col-lg-3 text-right" id="top-right">
+		<div class="" style="position:absolute; bottom:0; left:0; width:100%;">
 			<form class="form" action="spip.php" method="get">
-				<input name='page' value='recherche' type='hidden' />
-				<input type="text" name="recherche" id="recherche" value="Rechercher" autofocus size="15"/>
-				<button type="submit" id="rechok">OK</button>
+				<div class="input-group">
+					<input name='page' value='recherche' type='hidden' />
+					<input type="text" name="recherche" class="form-control" id="recherche" placeholder="Rechercher" autofocus size="15"/>
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-default" id="rechok">OK</button>
+					</span>
+				</div>
 			</form>
 			<div class="icones-sociaux pull-right">
+				<a href="?rubrique57" title="Calendrier des activités"><span class="fa fa-calendar"></span></a>
+				<a href="http://adherents.picardie-nature.org" title="Espace adhérent"><span class="fa fa-user"></span></a>
+				<a href="http://dons.picardie-nature.org" title="Dons et adhésion"><span class="fa fa-eur"></span></a>
+				<a href="http://www.clicnat.fr/" title="Clicnat"><span class="fa fa-paw"></span></a>
+				<a href="http://boutique.picardie-nature.org" title="Boutique"><span class="fa fa-shopping-cart"></span></a>
 				<a href="https://www.facebook.com/pages/Picardie-Nature/182270958508894"><i class="fa fa-facebook"></i></a>
 				<a href="https://plus.google.com/117129209946873603610/posts"><i class="fa fa-google-plus"></i></a>
 				<a href="http://www.twitter.com/PicardieNature"><i class="fa fa-twitter"></i></a>
@@ -25,6 +34,18 @@
 	</div> 
 </div>
 <div class="row visible-xs">
-	Entête mobile
+	PETIT LOGO PN
+	<div class="icones-sociaux pull-right">
+		<a href="?rubrique57" title="Calendrier des activités"><span class="fa fa-calendar"></span></a>
+		<a href="http://adherents.picardie-nature.org" title="Espace adhérent"><span class="fa fa-user"></span></a>
+		<a href="http://dons.picardie-nature.org" title="Dons et adhésion"><span class="fa fa-eur"></span></a>
+		<a href="http://www.clicnat.fr/" title="Clicnat"><span class="fa fa-paw"></span></a>
+		<a href="http://boutique.picardie-nature.org" title="Boutique"><span class="fa fa-shopping-cart"></span></a>
+		<a href="https://www.facebook.com/pages/Picardie-Nature/182270958508894"><i class="fa fa-facebook"></i></a>
+		<a href="https://plus.google.com/117129209946873603610/posts"><i class="fa fa-google-plus"></i></a>
+		<a href="http://www.twitter.com/PicardieNature"><i class="fa fa-twitter"></i></a>
+		<a href="spip.php?page=backend"><i class="fa fa-rss"></i></a>
+		<a href="https://github.com/Picardie-nature"><i class="fa fa-github"></i></a>
+	</div>
 </div>
 

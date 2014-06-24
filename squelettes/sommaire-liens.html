@@ -1,6 +1,6 @@
 </div>
 
-<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
 <div style="min-height:80px;">
 	<div data-spy="affix" data-offset-top="163">
 		<div class="container">
@@ -20,7 +20,7 @@
 <div class="container">
 <div class="row hidden-xs">
 	<div class="col-md-12">
-	<BOUCLE_rubrique2(RUBRIQUES){id_rubrique}>
+	<BOUCLE_rubrique2(RUBRIQUES){id_rubrique}{tout}>
 		<BOUCLE_rubrique_s(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
 			<div class="coul-[(#ID_SECTEUR|class_secteur)]">
 				<img class="pull-right" style="width:200px;" src="pix/pole-[(#ID_SECTEUR|class_secteur)].png">
