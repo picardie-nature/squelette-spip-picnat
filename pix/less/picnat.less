@@ -9,6 +9,7 @@
 @coul_protection_fs: #3366ff;
 @coul_protection_env: #cc9900;
 @coul_association: @coul_rouge_asso;
+@coul_vieasso: #f07508;
 
 /* couleurs des pôles + claire et + fade */
 @coul_decouverte2: desaturate(lighten(@coul_decouverte,60%),50%);
@@ -16,6 +17,7 @@
 @coul_protection_env2: desaturate(lighten(@coul_protection_env,30%),40%);
 @coul_observatoire2: desaturate(lighten(@coul_observatoire,30%),40%);
 @coul_association2: desaturate(lighten(@coul_association,30%),40%);
+@coul_vieasso2: desaturate(lighten(@coul_vieasso,30%),40%);
 
 /* couleurs des textes */
 @coul_texte_0: #ffffff;
@@ -56,7 +58,7 @@ ul.menu, .menu ul {
 
 .sommaire-liens-rub > a {
 	display:block;
-	width:20%;
+	width:100/6%;
 	height: @hauteur_lien_sommaire;
 	padding: 5px;
 	text-align:center;
@@ -83,6 +85,7 @@ ul.menu, .menu ul {
 .sommaire-liens-rub > a.bord-obs:hover, .sommaire-hover-obs { background-color: @coul_observatoire; }
 .sommaire-liens-rub > a.bord-anim:hover, .sommaire-hover-anim { background-color: @coul_decouverte; }
 .sommaire-liens-rub > a.bord-asso:hover, .sommaire-hover-asso { background-color: @coul_association; }
+.sommaire-liens-rub > a.bord-vieasso:hover, .sommaire-hover-vieasso { background-color: @coul_vieasso; }
 
 #top-picardie {
 	background-position: left bottom;
@@ -123,12 +126,14 @@ ul.menu, .menu ul {
 .coul-obs { color: @coul_observatoire; }
 .coul-anim { color: @coul_decouverte; }
 .coul-asso { color: @coul_association; }
+.coul-vieasso { color: @coul_vieasso; }
 
 .fond-env { background-color: @coul_protection_env; }
 .fond-prot { background-color: @coul_protection_fs; }
 .fond-obs { background-color: @coul_observatoire; }
 .fond-anim { background-color: @coul_decouverte; }
 .fond-asso { background-color: @coul_association; }
+.fond-vieasso { background-color: @coul_vieasso; }
 
 .fond-gris { background-color: #e3e3e3; }
 
@@ -152,6 +157,7 @@ ul.menu, .menu ul {
 .bord-obs { border-color: @coul_observatoire; }
 .bord-anim { border-color: @coul_decouverte; }
 .bord-asso { border-color: @coul_association; }
+.bord-vieasso { border-color: @coul_vieasso; }
 
 a.sommaire-titre-rubrique {
 	font-size: 16px;

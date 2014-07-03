@@ -2,7 +2,7 @@
 <INCLURE{fond=top}>
 <div class="row">
 	<div class="sommaire-liens-rub">
-		<BOUCLE_rubf(RUBRIQUES){id_rubrique IN 100,1,14,4,24}>
+		<BOUCLE_rubf(RUBRIQUES){titre_mot=rubrique_racine}{tout}{par titre}>
 			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)]" href="#r#ID_SECTEUR">#TITRE</a>
 		</BOUCLE_rubf>
 	</div>
@@ -31,7 +31,7 @@
 		<a class="right carousel-control hidden-xs" href="#carousel0" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
 	</div>
 	<div class="hidden-xs col-sm-3">
-		<a class="btn btn-default btn-block" href="?rubrique57"> Calendrier des activités</a>
+		<a class="btn btn-default btn-block" href="?rubrique57">Calendrier des activités</a>
 		<a class="btn btn-default btn-block" href="http://adherents.picardie-nature.org">Espace adhérents</a>
 		<a class="btn btn-default btn-block" href="http://dons.picardie-nature.org">Dons et adhésion</a>
 	 	<a class="btn btn-default btn-block" href="http://obs.picardie-nature.org">Clicnat</a>
@@ -65,7 +65,7 @@
 </div>
 <div class="row">
 	<div class="col-md-9">
-		<BOUCLE_ruba(RUBRIQUES){id_rubrique IN 1,14,4,24,100}>
+		<BOUCLE_ruba(RUBRIQUES){titre_mot=rubrique_racine}{tout}{par titre}>
 			<INCLURE{fond=sommaire_pole,id_rubrique}>
 		</BOUCLE_ruba>
 	</div>

@@ -5,7 +5,7 @@ function deco($w='')
 }
 function class_secteur($id_secteur)
 {
-	$classes = array (1 => 'obs', 14 => 'prot', 24 => 'env', 4 => 'anim', 100 => 'asso');
+	$classes = array (1 => 'obs', 14 => 'prot', 24 => 'env', 4 => 'anim', 100 => 'asso', '137' => 'vieasso');
 	if (isset ($classes[$id_secteur])) {
 		return $classes[$id_secteur];
 	} else {
