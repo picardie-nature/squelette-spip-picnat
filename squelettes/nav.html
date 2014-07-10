@@ -5,11 +5,21 @@
 	<div class="clearfix"></div>
 </h4>
 #SET{id_r_active, #ID_RUBRIQUE}
-<ul id="menu" class="hidden-xs menu">
-	<BOUCLE_rr(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
-		<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
-	</BOUCLE_rr>
-</ul>
+
+<div class="panel  panel-[(#ID_SECTEUR|class_secteur)]">
+	<BOUCLE_rubrique_s(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+		<div class="panel-heading">#TITRE</div>
+		<div class="panel-body coul-[(#ID_SECTEUR|class_secteur)]">
+			<!-- <img style="width:100%;" src="pix/pole-[(#ID_SECTEUR|class_secteur)].png"> -->
+			<small>#DESCRIPTIF</small>
+	</BOUCLE_rubrique_s>
+			<ul id="menu" class="hidden-xs menu">
+				<BOUCLE_rr(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+					<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
+				</BOUCLE_rr>
+			</ul>
+		</div>
+</div>
 </BOUCLE_r>
 <script>
 	// CODE JS A PAS LAISSER ICI

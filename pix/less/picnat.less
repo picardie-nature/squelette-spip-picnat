@@ -32,6 +32,7 @@
 @coul_pied_page: #999;
 
 @import "article.less";
+@import "spip.less";
 
 #top-left {
 	height: @top_hauteur;
@@ -137,11 +138,12 @@ ul.menu, .menu ul {
 
 .fond-gris { background-color: #e3e3e3; }
 
-.fond-clair-env { background-color: softlight(@coul_protection_env, #fff); }
-.fond-clair-prot { background-color: softlight(@coul_protection_fs, #fff); }
-.fond-clair-obs { background-color: softlight(@coul_observatoire, #fff); }
-.fond-clair-anim { background-color: softlight(@coul_decouverte, #fff); }
-.fond-clair-asso { background-color: softlight(@coul_association, #fff); }
+.fond-clair-env { background-color: @coul_protection_env2; }
+.fond-clair-prot { background-color: @coul_protection_fs2; }
+.fond-clair-obs { background-color: @coul_observatoire2; }
+.fond-clair-anim { background-color: @coul_decouverte2; }
+.fond-clair-asso { background-color: @coul_association2 }
+.fond-clair-vieasso { background-color: @coul_vieasso2 }
 .fond-blanc { background-color: white; }
 
 .intro-cont {
@@ -345,22 +347,26 @@ div.page-sommaire-pied {
 	}
 }
 
-.panel-decouverte, .panel-cal-pole1 {
+.panel-anim, .panel-decouverte, .panel-cal-pole1 {
 	.panel-variant(@coul_decouverte; @coul_texte_0; @coul_decouverte; darken(@coul_decouverte,20%); @coul_decouverte2);
 }
 
-.panel-observatoire, .panel-cal-pole2 {
+.panel-obs, .panel-observatoire, .panel-cal-pole2 {
 	.panel-variant(@coul_observatoire; @coul_texte_0; @coul_observatoire; darken(@coul_observatoire,20%); @coul_observatoire2);
 }
 
-.panel-protection-fs, .panel-cal-pole3 {
+.panel-prot, .panel-protection-fs, .panel-cal-pole3 {
 	.panel-variant(@coul_protection_fs; @coul_texte_0; @coul_protection_fs; darken(@coul_protection_fs,20%); @coul_protection_fs2);
 }
 
-.panel-protection-env, .panel-cal-pole4 {
+.panel-env, .panel-protection-env, .panel-cal-pole4 {
 	.panel-variant(@coul_protection_env; @coul_texte_0; @coul_protection_env; darken(@coul_protection_env,20%); @coul_protection_env2);
 }
 
-.panel-association, .panel-cal-pole5 {
+.panel-asso, .panel-association, .panel-cal-pole5 {
 	.panel-variant(@coul_association; @coul_texte_0; @coul_association; darken(@coul_association,20%); @coul_association2);
+}
+
+.panel-vieasso {
+	.panel-variant(@coul_vieasso; @coul_texte_0; @coul_vieasso; darken(@coul_association,20%); @coul_vieasso2);
 }

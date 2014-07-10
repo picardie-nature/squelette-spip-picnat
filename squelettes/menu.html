@@ -5,7 +5,10 @@
 			href="#URL_RUBRIQUE">#TITRE </a>
 	</li>
 	<ul>
-		<INCLURE{fond=menu}{id_rubrique}{id_r_active}>
+		<BOUCLE_m(MOTS){id_rubrique}{titre=stop_menu}{type=administration}>
+		</BOUCLE_m>
+			<INCLURE{fond=menu}{id_rubrique}{id_r_active}>
+		<//B_m>
 	</ul>
 </BOUCLE_r>
 
