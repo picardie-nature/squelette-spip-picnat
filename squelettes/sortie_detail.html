@@ -1,0 +1,22 @@
+<INCLURE{fond=head}>
+<INCLURE{fond=top}>
+<INCLURE{fond=sommaire-liens}{id_rubrique=4}>
+<div class="row">
+	<div class="col-md-3">
+		<INCLURE{fond=nav}{id_rubrique=57}>
+	</div>
+	<div class="col-md-9">
+		<?php
+		$url = "http://sorties.picardie-nature.org/?t=www_detail";
+		$url = "http://localhost:8080/~nicolas/sorties/?t=www_detail";
+		$args="";
+
+		if (isset($contexte['id_sortie']))
+			$args .= "&id_sortie=".urlencode($contexte['id_sortie']);
+		if (isset($contexte['date']))
+			$args .= "&date=".urlencode($contexte['date']);
+		echo file_get_contents("$url$args");
+		?>
+	</div>
+</div>
+<INCLURE{fond=foot}>

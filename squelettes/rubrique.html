@@ -40,9 +40,13 @@
 			</div>
 		</div>
 		<//B_slr>
-		<BOUCLE_rubartx(ARTICLES){id_rubrique}{par date}{inverse}>
-			<div><a href="#URL_ARTICLE">#TITRE</a></div>
-		</BOUCLE_rubartx>
+
+		<BOUCLE_sans_article(MOTS){id_rubrique}{titre=sans_liste_articles}>
+		</BOUCLE_sans_article>
+			<BOUCLE_rubartx(ARTICLES){id_rubrique}{par date}{inverse}>
+				<div><a href="#URL_ARTICLE">#TITRE</a></div>
+			</BOUCLE_rubartx>
+		<//B_sans_article>
 	</div>
 	<div class="col-md-3 fil">
 		<BOUCLE_sans_b_lat(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=rubrique_sans_bandeau_lateral}>
