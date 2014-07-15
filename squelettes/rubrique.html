@@ -12,9 +12,14 @@
 	</B_sans_b_lat0>
 	<div class="col-md-6 article">
 	<//B_sans_b_lat0>
+
+	<BOUCLE_test_phoques(MOTS){id_rubrique IN #ID_RUBRIQUE,#ID_PARENT}{titre="rubrique_journal_phoque"}>
+		<INCLURE{fond=rubrique_phoque}{id_rubrique}>
+	</BOUCLE_test_phoques>
+	</B_test_phoques>
 		<h1>#TITRE</h1>
 		[<h2>(#SOUS_TITRE)</h2>]
-		<div>#DESCRIPTIF</div>
+		<div><div class="pull-left">#LOGO_RUBRIQUE</div> #DESCRIPTIF</div>
 		<div>#TEXTE</div>
 		<BOUCLE_slr(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=sans_liste_rubrique}>
 		</BOUCLE_slr>
@@ -47,6 +52,7 @@
 				<div><a href="#URL_ARTICLE">#TITRE</a></div>
 			</BOUCLE_rubartx>
 		<//B_sans_article>
+	<//B_test_phoques>
 	</div>
 	<div class="col-md-3 fil">
 		<BOUCLE_sans_b_lat(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=rubrique_sans_bandeau_lateral}>

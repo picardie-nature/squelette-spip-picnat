@@ -1,0 +1,33 @@
+<BOUCLE_r(RUBRIQUES){id_rubrique}>
+	<BOUCLE_test_liste(MOTS){id_rubrique}{titre="rubrique_journal_phoque"}>
+		<!-- on est sur la liste des phoques-->
+		<h1>#TITRE</h1>
+		[<h2>(#SOUS_TITRE)</h2>]
+		<div><div class="pull-left">#LOGO_RUBRIQUE</div> #DESCRIPTIF</div>
+		<div>#TEXTE</div>
+		<BOUCLE_ph(RUBRIQUES){id_parent=#ID_RUBRIQUE}>
+			<div class="col-md-2 panel">
+				<a href="#URL_RUBRIQUE">#TITRE</a>
+				[(#LOGO_RUBRIQUE||image_reduire{300})]
+			</div>
+		</BOUCLE_ph>
+	</BOUCLE_test_liste>
+	</B_test_liste>
+		<!-- on est sur un phoque -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<h1>#TITRE</h1>
+					#TEXTE
+				</div>
+				<div class="col-md-8">
+					<BOUCLE_a(ARTICLES){id_rubrique}{par date}{inverse}>
+						<h3>#TITRE</h3>
+						#TEXTE
+					</BOUCLE_a>
+				</div>
+			</div>
+		</div>
+	<//B_test_liste>
+</BOUCLE_r>
+
