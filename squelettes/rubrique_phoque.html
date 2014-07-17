@@ -1,16 +1,18 @@
 <BOUCLE_r(RUBRIQUES){id_rubrique}>
 	<BOUCLE_test_liste(MOTS){id_rubrique}{titre="rubrique_journal_phoque"}>
+		<BOUCLE_rr(RUBRIQUES){id_rubrique}>
 		<!-- on est sur la liste des phoques-->
-		<h1>#TITRE</h1>
-		[<h2>(#SOUS_TITRE)</h2>]
-		<div><div class="pull-left">#LOGO_RUBRIQUE</div> #DESCRIPTIF</div>
-		<div>#TEXTE</div>
-		<BOUCLE_ph(RUBRIQUES){id_parent=#ID_RUBRIQUE}>
-			<div class="col-md-2 panel">
-				<a href="#URL_RUBRIQUE">#TITRE</a>
-				[(#LOGO_RUBRIQUE||image_reduire{300})]
-			</div>
-		</BOUCLE_ph>
+			<h1>#TITRE</h1>
+			[<h2>(#SOUS_TITRE)</h2>]
+			<div><div class="pull-left">#LOGO_RUBRIQUE</div> #DESCRIPTIF</div>
+			<div>#TEXTE</div>
+			<BOUCLE_ph(RUBRIQUES){id_parent=#ID_RUBRIQUE}>
+				<div class="col-md-2 panel">
+					<a href="#URL_RUBRIQUE">#TITRE</a>
+					[(#LOGO_RUBRIQUE||image_reduire{300})]
+				</div>
+			</BOUCLE_ph>
+		</BOUCLE_rr>
 	</BOUCLE_test_liste>
 	</B_test_liste>
 		<!-- on est sur un phoque -->
@@ -21,10 +23,20 @@
 					#TEXTE
 				</div>
 				<div class="col-md-8">
-					<BOUCLE_a(ARTICLES){id_rubrique}{par date}{inverse}>
-						<h3>#TITRE</h3>
-						#TEXTE
-					</BOUCLE_a>
+					<div class="panel-group" id="accordion">
+						<BOUCLE_a(ARTICLES){id_rubrique}{par date}{inverse}>
+						<div class="panel panel-prot">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#a#ID_ARTICLE">#TITRE</a>
+								</h4>
+							</div>
+							<div id="a#ID_ARTICLE" class="panel-collapse collapse [(#COMPTEUR_BOUCLE|=={1}|?{'in',''})]">
+								<div class="panel-body">#TEXTE</div>
+							</div>
+						</div>
+						</BOUCLE_a>
+					</div>
 				</div>
 			</div>
 		</div>
