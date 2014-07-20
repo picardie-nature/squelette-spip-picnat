@@ -19,7 +19,7 @@
 	</B_test_phoques>
 		<h1>#TITRE</h1>
 		[<h2>(#SOUS_TITRE)</h2>]
-		<div><div class="pull-left">#LOGO_RUBRIQUE</div> #DESCRIPTIF</div>
+		<div><div class="pull-left">[(#LOGO_RUBRIQUE|image_reduire{250})]</div> #DESCRIPTIF</div>
 		<div>#TEXTE</div>
 		<BOUCLE_slr(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=sans_liste_rubrique}>
 		</BOUCLE_slr>
