@@ -18,16 +18,6 @@
 				<div><a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a></div>
 			</BOUCLE_a>
 			#SET{pole, #ID_SECTEUR|sortie_pole}
-			<B_cal_s>
-			<div class="hidden-xs">
-				<h4>Agenda</h4>
-				<BOUCLE_cal_s(sortie_dates_v){date_sortie>#ENV{date}}{pole=#GET{pole}}{etat=3}{par date_sortie}{0,5}>
-					<div>&gt; #NOM_SORTIE 
-					<i>[(#DATE_SORTIE|nom_jour)] [(#DATE_SORTIE|affdate)]</i>
-					</div>
-				</BOUCLE_cal_s>
-			</div>
-			</B_cal_s>
 		</div>
 		<div class="col-md-2 hidden-xs hidden-sm">
 			<h4>Mots clés</h4>
