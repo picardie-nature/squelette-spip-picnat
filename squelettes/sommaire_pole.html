@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-sm-6 col-md-5">
 			<h4>Quoi de neuf</h4>
-			<BOUCLE_a(ARTICLES){id_secteur=#ID_RUBRIQUE}{par date}{inverse}{0,9}>
+			<BOUCLE_a(ARTICLES){id_secteur=#ID_RUBRIQUE}{!titre_mot=pas_actus}{par date}{inverse}{0,9}>
 				<div><a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a></div>
 			</BOUCLE_a>
 			#SET{pole, #ID_SECTEUR|sortie_pole}
