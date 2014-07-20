@@ -1,0 +1,101 @@
+<BOUCLE_principale(MOTS) {id_mot}>
+<INCLURE{fond=head}>
+<INCLURE{fond=top}>
+<INCLURE{fond=sommaire-liens}{id_rubrique=100}>
+<div class="row">
+		[(#REM) Contenu principal : contenu du mot-cle ]
+		<div class="col-md-9">
+			<div class="cartouche">
+				[(#LOGO_MOT|image_reduire{40,*})]
+				<h1 class="#EDIT{titre}">#TITRE</h1>
+			</div>
+	
+			[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+	
+			[(#REM) Articles lies au mot-cle ]
+			<B_articles>
+			<div class="menu menu_articles">
+				<h2><:articles:></h2>
+				<ul>
+					<BOUCLE_articles(ARTICLES) {id_mot} {!par popularite}>
+					<li>
+						<strong><a href="#URL_ARTICLE">[(#LOGO_ARTICLE_RUBRIQUE|image_reduire{40,*}) ]#TITRE</a></strong>
+						<br /><small>[(#DATE|affdate_jourcourt)][, <:par_auteur:> (#LESAUTEURS|supprimer_tags)]</small>
+					</li>
+					</BOUCLE_articles>
+				</ul>
+			</div>
+			</B_articles>
+	
+			[(#REM) Rubriques liees au mot-cle ]
+			<B_rubriques>
+			<div class="menu menu_rubriques">
+				<h2><:rubriques:></h2>
+				<ul>
+					<BOUCLE_rubriques(RUBRIQUES) {id_mot} {par titre}>
+					<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+					</BOUCLE_rubriques>
+				</ul>
+			</div>
+			</B_rubriques>
+	
+			[(#REM) Breves liees au mot-cle ]
+			<B_breves>
+			<div class="menu menu_breves">
+				<h2><:breves:breves:></h2>
+				<ul>
+					<BOUCLE_breves(BREVES) {id_mot} {par titre}>
+					<li><a href="#URL_BREVE">#TITRE</a></li>
+					</BOUCLE_breves>
+				</ul>
+			</div>
+			</B_breves>
+	
+			[(#REM) Liens des forums ]
+			<B_forums_liens>
+			<div class="menu menu_comments">
+				<h2><:messages_forum:></h2>
+				<ul>
+					<BOUCLE_forums_liens(FORUMS?) {id_mot} {plat} {!par date}>
+					[<li>[(#NOM|sinon{...})&nbsp;: ]<a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>(#TEXTE|couper{80})</a></li>]
+					</BOUCLE_forums_liens>
+				</ul>
+			</div>
+			</B_forums_liens>
+	
+			[(#REM) Sites web lies au mot-cle ]
+			<B_sites>
+			<div class="menu">
+				<h2><:sites_web:></h2>
+				<ul>
+					<BOUCLE_sites(SITES) {id_mot} {par nom_site}>
+					<li><a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]">#NOM_SITE</a></li>
+					</BOUCLE_sites>
+				</ul>
+			</div>
+			</B_sites>
+	
+			[<div class="notes"><hr />(#NOTES)</div>]
+	
+		</div>
+		<div class="col-md-3">
+	
+			[(#REM) Menu de navigation mots-cles : les autres mots cles du meme groupe ]
+			<B_mots_freres>
+			<div class="menu">
+				#ANCRE_PAGINATION
+				<h2><:mots_clefs_meme_groupe:></h2>
+				<ul>
+					<BOUCLE_mots_freres(MOTS) {type} {par titre} {pagination 20}>
+					<li><a href="#URL_MOT"[ class="(#EXPOSE)"]>#TITRE</a></li>
+					</BOUCLE_mots_freres>
+				</ul>
+				[<p class="pagination">(#PAGINATION)</p>]
+			</div>
+			</B_mots_freres>
+		</div>
+	</div>
+
+
+<INCLURE{fond=foot}>
+</BOUCLE_principale>
