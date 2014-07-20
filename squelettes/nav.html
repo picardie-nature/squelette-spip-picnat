@@ -5,6 +5,12 @@
 	<div class="clearfix"></div>
 </h4>
 #SET{id_r_active, #ID_RUBRIQUE}
+<ul id="menu" class="hidden menu">
+	<BOUCLE_rra(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+		<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
+	</BOUCLE_rra>
+</ul>
+
 
 <div class="panel panel-[(#ID_SECTEUR|class_secteur)] hidden-xs">
 	<BOUCLE_rubrique_s(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
@@ -13,7 +19,7 @@
 			<!-- <img style="width:100%;" src="pix/pole-[(#ID_SECTEUR|class_secteur)].png"> -->
 			<small>#DESCRIPTIF</small>
 	</BOUCLE_rubrique_s>
-			<ul id="menu" class="hidden-xs menu">
+			<ul class="hidden-xs menu">
 				<BOUCLE_rr(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
 					<INCLURE{fond=menu}{id_rubrique}{id_r_active=#GET{id_r_active}}>
 				</BOUCLE_rr>
@@ -26,10 +32,10 @@
 	$('#l_menu').click(function (e) {
 		e.stopPropagation();
 		var menu = $('#menu');
-		if (menu.hasClass('hidden-xs'))
-			$('#menu').removeClass('hidden-xs');
+		if (menu.hasClass('hidden'))
+			$('#menu').removeClass('hidden');
 		else
-			$('#menu').addClass('hidden-xs');
+			$('#menu').addClass('hidden');
 		return false;
 	});
 </script>
