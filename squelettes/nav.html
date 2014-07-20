@@ -6,7 +6,7 @@
 </h4>
 #SET{id_r_active, #ID_RUBRIQUE}
 
-<div class="panel  panel-[(#ID_SECTEUR|class_secteur)]">
+<div class="panel panel-[(#ID_SECTEUR|class_secteur)] hidden-xs">
 	<BOUCLE_rubrique_s(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
 		<div class="panel-heading">#TITRE</div>
 		<div class="panel-body coul-[(#ID_SECTEUR|class_secteur)]">
