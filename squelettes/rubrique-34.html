@@ -1,0 +1,31 @@
+<INCLURE{fond=head}>
+<INCLURE{fond=top}>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
+<INCLURE{fond=sommaire-liens}{id_rubrique}>
+<div class="row">
+	<div class="col-md-3">
+		<INCLURE{fond=nav}{id_rubrique}>
+	</div>
+	<div class="col-md-9">
+		<h1>#TITRE</h1>
+		[<h2>(#SOUS_TITRE)</h2>]
+		<BOUCLE_cal_rub(ARTICLES){branche}{doublons} />
+		<BOUCLE_cal_mot(ARTICLES){titre_mot=communique}{doublons} />
+		<BOUCLE_cal_all(ARTICLES){!doublons}{par date}{inverse}>
+		<div class="panel panel-default panel-[(#ID_SECTEUR|class_secteur)]">
+			<div class="panel-heading">
+				#TITRE
+			</div>
+			<div class="panel-body">
+				<a href="#URL_ARTICLE">[(#TEXTE|couper{250})]</a>
+			</div>
+			<div class="panel-footer">
+				Publié le [(#DATE|affdate)]
+			</div>
+		</div>
+		</BOUCLE_cal_all>
+
+	</div>
+</div>
+</BOUCLE_rubrique>
+<INCLURE{fond=foot}>
