@@ -19,14 +19,14 @@
 	</B_test_phoques>
 		<h1>#TITRE</h1>
 		[<h2>(#SOUS_TITRE)</h2>]
-		<div><div class="pull-left">[(#LOGO_RUBRIQUE|image_reduire{250})]</div> #DESCRIPTIF</div>
+		<div><div class="logo-rubrique pull-left">[(#LOGO_RUBRIQUE|image_reduire{250})]</div> #DESCRIPTIF</div>
 		<div>#TEXTE</div>
 		<BOUCLE_slr(MOTS) {id_rubrique=#ID_RUBRIQUE}{titre=sans_liste_rubrique}>
 		</BOUCLE_slr>
 		</B_slr>
 		<div class="row">
 			<div class="col-md-6">
-			<BOUCLE_rubrubx_impair(RUBRIQUES){id_parent}{par titre}>
+			<BOUCLE_rubrubx_impair(RUBRIQUES){id_parent}{par titre}{tout}>
 				[(#COMPTEUR_BOUCLE|modulo{2}|=={1}|oui)
 				<div class="well">
 					<a href="#URL_RUBRIQUE">#TITRE</a>
@@ -35,7 +35,7 @@
 			</BOUCLE_rubrubx_impair>
 			</div>
 			<div class="col-md-6">
-			<BOUCLE_rubrubx_pair(RUBRIQUES){id_parent}{par titre}>
+			<BOUCLE_rubrubx_pair(RUBRIQUES){id_parent}{par titre}{tout}>
 				[(#COMPTEUR_BOUCLE|modulo{2}|=={0}|oui)
 				<div class="well">
 					<a href="#URL_RUBRIQUE">#TITRE</a>
