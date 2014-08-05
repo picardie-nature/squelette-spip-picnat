@@ -10,7 +10,13 @@
 		<h1>#TITRE</h1>
 		[<h2>(#SOUS_TITRE)</h2>]
 		<div class="meta">Publi&eacute; le [(#DATE|affdate)][ par (#LESAUTEURS)]</div>
-		<div>#TEXTE</div>
+		<div>[(#TEXTE|glossaire_motcles)]</div>
+		<hr/>
+		<B_ma>
+			Mots clés :
+		<BOUCLE_ma(MOTS){id_article}{id_groupe=6}>
+			<a href="#URL_MOT"><span class="label label-info">#TITRE<span></a>
+		</BOUCLE_ma>
 	</div>
 	<div class="col-md-3 fil">
 		#SET{mots, #ARRAY}

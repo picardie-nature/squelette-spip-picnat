@@ -29,4 +29,22 @@ function archives_classeur($id_classeur) {
 	$id = (int)$id_classeur;
 	return file_get_contents("http://archives.picardie-nature.org/?action=classeur&id=$id&spip=1");
 }
+
+function glossaire_motcles($texte) {
+	$q = sql_select('id_groupe', 'spip_groupes_mots','titre=\'Glossaire\'');
+	$rgrp = sql_fetch($q);
+
+	// échoue silentieusement
+	if (!$rgrp)
+		return "(Erreur glossaire) $texte";
+	$q = sql_select(array('titre','descriptif'), 'spip_mots', "id_groupe={$rgrp['id_groupe']}");
+	while ($r = sql_fetch($q)) {
+		$mots[$r['titre']] = $r['descriptif'];
+	}
+
+	foreach ($mots as $abbr => $desc) {
+		$texte = preg_replace("/([ ,.])$abbr([ ,.])/", "$1<abbr title=\"$desc\">$abbr</abbr>$2",$texte);
+	}
+	return $texte;
+}
 ?>
