@@ -43,7 +43,7 @@ function glossaire_motcles($texte) {
 	}
 
 	foreach ($mots as $abbr => $desc) {
-		$texte = preg_replace("/([ ,.\(])$abbr([ ,.\)])/", "$1<abbr title=\"$desc\">$abbr</abbr>$2",$texte);
+		$texte = preg_replace("/([ ,.\('])$abbr([ ,.\)])/", "$1<abbr title=\"$desc\">$abbr</abbr>$2",$texte);
 	}
 	return $texte;
 }
