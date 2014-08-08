@@ -16,7 +16,7 @@
 	<link rel="shortcut icon" href="pix/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="pix/picnat.css"/>
 	<BOUCLE_descart(ARTICLES){id_article}>
-		<meta name="description" content="[(#INTRODUCTION|couper{150}|textebrut)]" /></BOUCLE_descart>
+		<meta name="description" content="[(#INTRODUCTION|couper{150}|textebrut)]" />
 		<meta name="twitter:card" content="summary"/>
 		<meta name="twitter:title" content="#TITRE"/>
 		<meta name="twitter:description" content="[(#INTRODUCTION|couper{200}|textebrut)]"/>
@@ -28,7 +28,21 @@
 		<meta property="og:locale" content="fr_FR"/>
 		<meta property="og:site_name" content="Picardie Nature"/>
 		<meta property="og:image" content="http://www.picardie-nature.org/[(#DESCRIPTIF|extraire_balise{img}|extraire_attribut{src})]"/>
-	<BOUCLE_descrub(RUBRIQUES){id_rubrique}>[<meta name="description" content="(#INTRODUCTION|couper{150}|textebrut)" />]</BOUCLE_descrub>
+        </BOUCLE_descart>
+	<BOUCLE_descrub(RUBRIQUES){id_rubrique}>
+		<meta name="description" content="[(#INTRODUCTION|couper{150}|textebrut)]" />
+		<meta name="twitter:card" content="summary"/>
+		<meta name="twitter:title" content="#TITRE"/>
+		<meta name="twitter:description" content="[(#INTRODUCTION|couper{200}|textebrut)]"/>
+		<meta name="twitter:site" content="@PicardieNature"/>
+
+		<meta property="og:title" content="#TITRE"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:url" content="http://www.picardie-nature.org/#URL_RUBRIQUE"/>
+		<meta property="og:locale" content="fr_FR"/>
+		<meta property="og:site_name" content="Picardie Nature"/>
+		<meta property="og:image" content="http://www.picardie-nature.org/[(#DESCRIPTIF|extraire_balise{img}|extraire_attribut{src})]"/>
+	</BOUCLE_descrub>
 </head>
 <body>
 	<script src="//code.jquery.com/jquery.js"></script>

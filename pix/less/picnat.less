@@ -1,4 +1,9 @@
 @import "bsvars.less";
+
+@font_titres: Arial, Helvetica, sans-serif;
+@font_titres_articles: "Arial Black", Gadget, sans-serif;
+@font_articles: Tahoma, Geneva, sans-serif;
+
 /* globals */
 @coul_rouge_asso: #d90019;
 @coul_avocette: #014249;
@@ -176,6 +181,18 @@ a.sommaire-titre-rubrique-prot:hover  { text-decoration: none; color:white; back
 a.sommaire-titre-rubrique-obs:hover  { text-decoration: none; color:white; background-color: @coul_observatoire; }
 a.sommaire-titre-rubrique-anim:hover  { text-decoration: none; color:white; background-color: @coul_decouverte; }
 a.sommaire-titre-rubrique-asso:hover  { text-decoration: none; color:white; background-color: @coul_association; }
+
+h1, h2, h3, h4, h5, h5 {
+	font-family: @font_titres;
+}
+
+.article h1:first-of-type {
+	font-family: @font_titres_articles;
+	margin-top: 0px;
+}
+.article p {
+	font-family: @font_articles;
+}
 
 .titre-rubrique {
 	padding: 3px;
