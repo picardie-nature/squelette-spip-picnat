@@ -48,6 +48,14 @@ function glossaire_motcles($texte) {
 	return $texte;
 }
 
+function mini_url_sortie($date,$id_sortie,$date) {
+	$id_sortie = (int)$id_sortie;
+	$url = "http://www.picardie-nature.org/?page=sortie_detail&id_sortie=$id_sortie&date=$date";
+	$datajs = file_get_contents("http://sorties.picardie-nature.org/?t=json_sortie&id_sortie=$id_sortie");
+	$data = json_decode($datajs, true);
+	return mini_url($url,$data['nom']);
+}
+
 function mini_url($url,$titre) {
 	if (!preg_match('/^http\:\/\//',$url))
 		$url = "http://www.picardie-nature.org/$url";

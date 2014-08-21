@@ -17,6 +17,7 @@
 			$args .= "&date=".urlencode($contexte['date']);
 		echo file_get_contents("$url$args");
 		?>
+		[(#DATE|mini_url_sortie{#ID_SORTIE})]
 	</div>
 </div>
 <INCLURE{fond=foot}>
