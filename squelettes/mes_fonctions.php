@@ -47,4 +47,63 @@ function glossaire_motcles($texte) {
 	}
 	return $texte;
 }
+
+function mini_url($url,$titre) {
+	if (!preg_match('/^http\:\/\//',$url))
+		$url = "http://www.picardie-nature.org/$url";
+
+	$datajs = file_get_contents("http://10.10.0.3/~nicolas/minilink/api.php?cmd=reduce&url=".urlencode($url));
+	$data = json_decode($datajs, true);
+
+	$minurl = "http://l.picnat.fr/{$data['id']}";
+
+	
+	$r = "Partager : ";
+	// twitter
+	$targs = array(
+		"lang" => "fr",
+		"via" => "PicardieNature",
+		"url" => $minurl,
+		"text" => $titre
+	);
+	$r .= "<a href=\"https://twitter.com/share?";
+	foreach ($targs as $k => $v) {
+		$r.=urlencode($k)."=".urlencode($v)."&";
+	}
+	$r .= "\" title=\"Partager sur Tweeter\"><i class=\"fa fa-twitter\"></i> </a>";
+
+	// facebook
+	$targs = array(
+		"u" => $minurl,
+		"t" => $titre
+	);
+
+	$r .= "<a target='_blank' href=\"https://www.facebook.com/sharer/sharer.php?";
+	foreach ($targs as $k => $v) {
+		$r.=urlencode($k)."=".urlencode($v)."&";
+	}
+	$r .= "\" title='Partager sur Facebook'><i class=\"fa fa-facebook-square\"></i></a> ";
+
+	// google+
+	$targs = array(
+		"url" => $minurl
+	);
+
+	$r .= "<a target='_blank' href=\"https://plus.google.com/share?";
+	foreach ($targs as $k => $v) {
+		$r.=urlencode($k)."=".urlencode($v)."&";
+	}
+	$r .= "\" title='Partager sur Google+'><i class=\"fa fa-google-plus\"></i></a> ";
+
+	// minilien 
+	$r .= "<a href=\"$minurl\"";
+	if ($data['reused'] == 1) {
+		$rdata_js = file_get_contents("http://10.10.0.3/~nicolas/minilink/api.php?cmd=status&id=".$data['id']);
+		$rdata =json_decode($rdata_js, true);
+		$r .= " title='URL courte utilisée {$rdata['visites']} fois'";
+	}
+	$r .= ">$minurl</a> ";
+
+	return $r;
+}
 ?>
