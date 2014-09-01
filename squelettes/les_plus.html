@@ -1,6 +1,6 @@
 <h4>Les plus récents</h4>
 <ul>
-<BOUCLE_rec(ARTICLES){titre_mot=page_sommaire}{par date}{inverse}{0,15}>
+<BOUCLE_rec(ARTICLES){titre_mot!=pas_actus}{par date}{inverse}{0,15}>
 	<li>
 		<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
 	</li>
@@ -8,7 +8,7 @@
 </ul>
 <h4>Les plus lus</h4>
 <ul>
-<BOUCLE_pop(ARTICLES){titre_mot=page_sommaire}{par popularite}{inverse}{0,15}>
+<BOUCLE_pop(ARTICLES){titre_mot!=pas_actus}{par popularite}{inverse}{0,15}>
 	<li>
 		<a href="#URL_ARTICLE">[(#TITRE|textebrut)]</a>
 	</li>
