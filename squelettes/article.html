@@ -20,6 +20,22 @@
 		[(#URL_ARTICLE|mini_url{#TITRE})]
 	</div>
 	<div class="col-md-3 fil">
+		<B_docs>
+			<h4>Documents</h4>
+			<ul>
+		<BOUCLE_docs(DOCUMENTS){id_article}{mode=document}>
+				<li>
+					<a href="#URL_DOCUMENT">
+						<div style="float:left;">#LOGO_DOCUMENT</div>
+						#TITRE - [(#TAILLE|taille_en_octets)]<br/>
+						#TYPE_DOCUMENT
+					</a>
+					<div style="clear:both;"></div>
+				</li>
+		</BOUCLE_docs>
+			</ul>
+		</B_docs>
+
 		#SET{mots, #ARRAY}
 		<BOUCLE_m(MOTS){id_article}{id_groupe=6}{0,10}>
 			#SET{mots, #GET{mots}|push{#ID_MOT}}
