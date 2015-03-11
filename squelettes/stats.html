@@ -1,0 +1,91 @@
+	<div id="gen-contenu" class="clearfix">
+		<div id="breadcrumb">
+		</div>
+		<div class="cartouche">
+			<h1>Stats</h1>
+		</div>
+		<div class="texte">
+		<style>
+			table {
+				border-collapse: collapse;
+				empty-cells:show;
+			}
+
+			td {
+				border: thin solid #6495ed;
+				text-align: right;
+			}
+
+			th {
+				border: thin solid #6495ed;
+			}
+		</style>
+		<table class="t">
+			<tr>
+				<th>Année</th>
+				<th>Total</th>
+				<th>PEF</th>
+				<th>Protection fs</th>
+				<th>Protection env</th>
+				<th>Découverte</th>
+				<th>Association</th>
+				<th>Archives articles</th>
+			</tr>
+		<BOUCLE_annees(ARTICLES){par date}{inverse}{fusion YEAR(date)}>
+			<tr>
+				<td>[(#DATE|annee)] </td>
+			<td style="text-align:right;">
+			<B_articles>
+				#TOTAL_BOUCLE
+			<BOUCLE_articles(ARTICLES){annee=#DATE}{id_rubrique!=57}{id_secteur!=77}>
+			</BOUCLE_articles>
+			</td>
+
+			<td style="text-align:right;">
+			<B_articles_pef>
+				#TOTAL_BOUCLE
+			<BOUCLE_articles_pef(ARTICLES){annee=#DATE}{id_secteur=1}>
+			</BOUCLE_articles_pef>
+			</B_articles_pef>
+			</td>
+
+			<td style="text-align:right;">
+			<B_articles_pr>
+				#TOTAL_BOUCLE
+			<BOUCLE_articles_pr(ARTICLES){annee=#DATE}{id_secteur=14}>
+			</BOUCLE_articles_pr>
+			</td>
+		
+			<td style="text-align:right;">
+			<B_articles_pr_e>
+				#TOTAL_BOUCLE
+			<BOUCLE_articles_pr_e(ARTICLES){annee=#DATE}{id_secteur=24}>
+			</BOUCLE_articles_pr_e>
+			</td>
+
+			<td style="text-align:right;">
+			<B_articles_pr_dn>
+				#TOTAL_BOUCLE
+			<BOUCLE_articles_pr_dn(ARTICLES){annee=#DATE}{id_secteur=4}{id_rubrique!=57}>
+			</BOUCLE_articles_pr_dn>
+			</td>
+
+			<td style="text-align:right;">
+			<B_articles_pr_ass>
+				#TOTAL_BOUCLE
+			<BOUCLE_articles_pr_ass(ARTICLES){annee=#DATE}{id_secteur=100}>
+			</BOUCLE_articles_pr_ass>
+			</td>
+
+			<td style="text-align:right;">
+			<B_articles_pr_ar>
+				(#TOTAL_BOUCLE)
+			<BOUCLE_articles_pr_ar(ARTICLES){annee=#DATE}{id_secteur=77}>
+			</BOUCLE_articles_pr_ar>
+			</td>
+
+			</tr>
+		</BOUCLE_annees>
+		</table>
+		</div>
+	</div>
