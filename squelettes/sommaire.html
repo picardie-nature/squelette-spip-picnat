@@ -1,125 +1,127 @@
 <INCLURE{fond=head}>
-<INCLURE{fond=top}>
-<div class="row">
-	<div class="sommaire-liens-rub">
-		<BOUCLE_rubf(RUBRIQUES){titre_mot=rubrique_racine}{tout}{par titre}>
-			<a class="pull-left bord-[(#ID_SECTEUR|class_secteur)]" href="#r#ID_SECTEUR">#TITRE</a>
-		</BOUCLE_rubf>
-	</div>
-	<div style="clear:both;"></div>
-</div>
-<div class="row hidden-print">
-	<div class="col-sm-9" style="padding:0px;">
-		<div id="carousel0" class="carousel slide hidden-xs" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carousel0" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel0" data-slide-to="1"></li>
-				<li data-target="#carousel0" data-slide-to="2"></li>
-				<li data-target="#carousel0" data-slide-to="3"></li>
-				<li data-target="#carousel0" data-slide-to="4"></li>
-				<li data-target="#carousel0" data-slide-to="5"></li>
-				<li data-target="#carousel0" data-slide-to="6"></li>
-				<li data-target="#carousel0" data-slide-to="7"></li>
-				<li data-target="#carousel0" data-slide-to="8"></li>
-			</ol>
-			 <div class="carousel-inner">
-				<div class="item active">
-					<a href="http://dons.picardie-nature.org"><img src="pix/heroes/bandeau-pn26.jpg" alt="En 2017, adhérez à Picardie Nature"></a>
-				</div>
-				<div class="item ">
-					<a href="spip.php?article3888"><img src="pix/heroes/bandeau-pn34.jpg" alt="..."></a>
-				</div>
-				<div class="item">
-					<a href="spip.php?rubrique20"><img src="pix/heroes/bandeau-pn20.jpg" alt="..."></a>
-					<div class="carousel-caption">
-						<h3>Surveillance et protection des phoques de la Baie de Somme</h3>
-					</div>
-				</div>
-				<div class="item">
-					<a href="spip.php?rubrique57"><img src="pix/heroes/bandeau-pn29.jpg" alt="calendrier des activités"/></a>
-				</div>
-				<div class="item">
-					<a href="http://www.picardie-nature.org/la-vie-de-l-association/benevolat-emplois-stages-missions/benevolat/article/participez-benevolement-a-la"><img src="pix/heroes/bandeau-pn8.jpg" alt="Centre de sauvegarde de la faune sauvage"/></a>
-				</div>
-				<div class="item">
-					<a href="http://www.picardie-nature.org/etude-de-la-faune-sauvage/les-outils/" target="_blank"><img src="pix/heroes/bandeau-pn36.jpg" alt="Les cloportes à vos portes"/></a>
-				</div>
-				<div class="item">
-					<a href="http://www.picardie-nature.org/etude-de-la-faune-sauvage/les-groupes-de-faune-etudies/les-14-reseaux-naturalistes-de/chauves-souris/enquetes/article/lancement-de-l-atlas-des-chauves" target="_blank"><img src="pix/heroes/atlas.jpg" alt="Lancement de l'Atlas des chauves-souris"/></a>
-				</div>
-				<div class="item">
-					<a href="http://www.picardie-nature.org/protection-de-la-faune-sauvage/protection-et-cohabitation-avec/" target="_blank"><img src="pix/heroes/bandeau-pn32.jpg" alt="SOS Chauves-souris"/></a>
-				</div>
-				<div class="item">
-					<a href="https://nousvoulonsdescoquelicots.org/" target="_new"><img src="pix/heroes/coquelicots.jpg" alt=" Nous voulons des Coquelicots"></a>
-				</div>
-			</div>
-		</div>
-		<a class="left carousel-control hidden-xs" href="#carousel0" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
-		<a class="right carousel-control hidden-xs" href="#carousel0" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
-	</div>
-	<div class="hidden-xs col-sm-3">
-		<a class="btn btn-default btn-block" href="?rubrique57">Calendrier des activités</a>
-		<a class="btn btn-default btn-block" href="http://adherents.picardie-nature.org">Espace adhérents</a>
-		<a class="btn btn-default btn-block" href="http://dons.picardie-nature.org">Dons et adhésion</a>
-	 	<a class="btn btn-default btn-block" href="https://clicnat.fr">Clicnat</a>
-		<a class="btn btn-default btn-block" href="http://boutique.picardie-nature.org">Boutique</a>
-	</div>
-</div>
-<div class="row" id="haut">
-	<BOUCLE_psa(ARTICLES){titre_mot="page_sommaire"}{par date}{inverse}{0,8}>
-		<div class="col-sm-4 col-md-3 hidden-xs">
-			<div class="thumbnail">
-				<div class="page-sommaire-thumbnail">
-					<div class="page-sommaire-content">
-						<div class="img-page-sommaire">
-							[(#DESCRIPTIF|image_reduire{300}|extraire_balise{img})]
-						</div>
-						<h4>#TITRE</h4>
-						<div class="page-sommaire-txt">
-							[(#DESCRIPTIF|textebrut)]
-						</div>
-					</div>
-					<div class="page-sommaire-degrade">
-						<a href="#URL_ARTICLE"><a>
-					</div>
-				</div>
-				<div class="page-sommaire-pied">
-					<a class="btn btn-primary btn-xs" href="#URL_ARTICLE">Lire l'article</a>
-				</div>
-			</div>
-		</div>
-	</BOUCLE_psa>
-</div>
-<div class="row">
-	<div class="col-md-9">
-		<BOUCLE_ruba(RUBRIQUES){titre_mot=rubrique_racine}{tout}{par titre}>
-			<INCLURE{fond=sommaire_pole,id_rubrique}>
-		</BOUCLE_ruba>
-	</div>
-	<div class="col-md-3 fil hidden-print">
-		<INCLURE{fond=les_plus}>
-		<h4>Partenaires</h4>
-		<INCLURE{fond=partenaires}>
-	</div>
-</div>
-<script>
-$(document).ready(
-	function () {
-		// page qui scroll pas sur la balise dans l'URL
-		// semble être un bug dans bs3, on le fait à la main
-		try {
-			if (navigator.appCodeName == 'Mozilla') {
-				if (document.location.hash) {
-					var pos = $(document.location.hash).offset();
-					$(document).scrollTop(pos['top']);
-				}
-			}
-		} catch (e) {
-			// tampis
-		}
-		$('#carousel0').carousel();
-	}
-);
-</script>
-<INCLURE{fond=foot}>
+    <INCLURE{fond=top}>
+        <div class="row">
+            <div class="sommaire-liens-rub">
+                <BOUCLE_rubf(RUBRIQUES){titre_mot=rubrique_racine}{tout}{par titre}>
+                    <a class="pull-left bord-[(#ID_SECTEUR|class_secteur)]" href="#r#ID_SECTEUR">#TITRE</a>
+                    </BOUCLE_rubf>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="row hidden-print">
+            <div class="col-sm-9" style="padding:0px;">
+                <div id="carousel0" class="carousel slide hidden-xs" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel0" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel0" data-slide-to="1"></li>
+                        <li data-target="#carousel0" data-slide-to="2"></li>
+                        <li data-target="#carousel0" data-slide-to="3"></li>
+                        <li data-target="#carousel0" data-slide-to="4"></li>
+                        <li data-target="#carousel0" data-slide-to="5"></li>
+                        <li data-target="#carousel0" data-slide-to="6"></li>
+                        <li data-target="#carousel0" data-slide-to="7"></li>
+                        <li data-target="#carousel0" data-slide-to="8"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="http://dons.picardie-nature.org"><img src="pix/heroes/bandeau-pn26.jpg" alt="En 2017, adhérez à Picardie Nature"></a>
+                        </div>
+                        <div class="item ">
+                            <a href="spip.php?article3888"><img src="pix/heroes/bandeau-pn34.jpg" alt="..."></a>
+                        </div>
+                        <div class="item">
+                            <a href="spip.php?rubrique20"><img src="pix/heroes/bandeau-pn20.jpg" alt="..."></a>
+                            <div class="carousel-caption">
+                                <h3>Surveillance et protection des phoques de la Baie de Somme</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <a href="spip.php?rubrique57"><img src="pix/heroes/bandeau-pn29.jpg" alt="calendrier des activités" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="http://www.picardie-nature.org/la-vie-de-l-association/benevolat-emplois-stages-missions/benevolat/article/participez-benevolement-a-la"><img src="pix/heroes/bandeau-pn8.jpg" alt="Centre de sauvegarde de la faune sauvage" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="http://www.picardie-nature.org/etude-de-la-faune-sauvage/les-outils/" target="_blank"><img src="pix/heroes/bandeau-pn36.jpg" alt="Les cloportes à vos portes" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="http://www.picardie-nature.org/etude-de-la-faune-sauvage/les-groupes-de-faune-etudies/les-14-reseaux-naturalistes-de/chauves-souris/enquetes/article/lancement-de-l-atlas-des-chauves" target="_blank"><img src="pix/heroes/atlas.jpg" alt="Lancement de l'Atlas des chauves-souris" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="http://www.picardie-nature.org/protection-de-la-faune-sauvage/protection-et-cohabitation-avec/" target="_blank"><img src="pix/heroes/bandeau-pn32.jpg" alt="SOS Chauves-souris" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="https://nousvoulonsdescoquelicots.org/" target="_new"><img src="pix/heroes/coquelicots.jpg" alt=" Nous voulons des Coquelicots"></a>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control hidden-xs" href="#carousel0" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+                <a class="right carousel-control hidden-xs" href="#carousel0" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+            </div>
+            <div class="hidden-xs col-sm-3">
+                <a class="btn btn-default btn-block" href="?rubrique57">Calendrier des activités</a>
+                <a class="btn btn-default btn-block" href="http://adherents.picardie-nature.org">Espace adhérents</a>
+                <a class="btn btn-default btn-block" href="https://picardie-nature.assoconnect.com/page/1740891-dons-a-l-association">Dons</a>
+                <a class="btn btn-default btn-block" href="https://picardie-nature.assoconnect.com/page/1690034-adhesions">Adhésion</a>
+                <a class="btn btn-default btn-block" href="https://clicnat.fr">Clicnat</a>
+                <a class="btn btn-default btn-block" href="http://boutique.picardie-nature.org">Boutique</a>
+            </div>
+        </div>
+        <div class="row" id="haut">
+            <BOUCLE_psa(ARTICLES){titre_mot="page_sommaire" }{par date}{inverse}{0,8}>
+                <div class="col-sm-4 col-md-3 hidden-xs">
+                    <div class="thumbnail">
+                        <div class="page-sommaire-thumbnail">
+                            <div class="page-sommaire-content">
+                                <div class="img-page-sommaire">
+                                    [(#DESCRIPTIF|image_reduire{300}|extraire_balise{img})]
+                                </div>
+                                <h4>#TITRE</h4>
+                                <div class="page-sommaire-txt">
+                                    [(#DESCRIPTIF|textebrut)]
+                                </div>
+                            </div>
+                            <div class="page-sommaire-degrade">
+                                <a href="#URL_ARTICLE">
+                                    <a>
+                            </div>
+                        </div>
+                        <div class="page-sommaire-pied">
+                            <a class="btn btn-primary btn-xs" href="#URL_ARTICLE">Lire l'article</a>
+                        </div>
+                    </div>
+                </div>
+                </BOUCLE_psa>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <BOUCLE_ruba(RUBRIQUES){titre_mot=rubrique_racine}{tout}{par titre}>
+                    <INCLURE{fond=sommaire_pole,id_rubrique}>
+                        </BOUCLE_ruba>
+            </div>
+            <div class="col-md-3 fil hidden-print">
+                <INCLURE{fond=les_plus}>
+                    <h4>Partenaires</h4>
+                    <INCLURE{fond=partenaires}>
+            </div>
+        </div>
+        <script>
+            $(document).ready(
+                function() {
+                    // page qui scroll pas sur la balise dans l'URL
+                    // semble être un bug dans bs3, on le fait à la main
+                    try {
+                        if (navigator.appCodeName == 'Mozilla') {
+                            if (document.location.hash) {
+                                var pos = $(document.location.hash).offset();
+                                $(document).scrollTop(pos['top']);
+                            }
+                        }
+                    } catch (e) {
+                        // tampis
+                    }
+                    $('#carousel0').carousel();
+                }
+            );
+        </script>
+        <INCLURE{fond=foot}>
